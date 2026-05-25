@@ -3,28 +3,28 @@
 import { motion } from 'framer-motion'
 
 const PROJECTS = [
-  { title: 'AI SaaS Dashboard', desc: 'Multi-tenant analytics platform with AI insights', tag: 'Production Grade', color: '#6366f1', icon: '📊', techs: ['Next.js', 'OpenAI', 'Supabase'] },
-  { title: 'LMS Platform', desc: 'Full-featured learning platform with video courses', tag: 'Industry-Level', color: '#8b5cf6', icon: '🎓', techs: ['React', 'Node.js', 'AWS S3'] },
-  { title: 'AI Chatbot App', desc: 'Context-aware chatbot with RAG & vector search', tag: 'Team-Based Project', color: '#06b6d4', icon: '🤖', techs: ['Python', 'LangChain', 'Pinecone'] },
-  { title: 'Auth System', desc: 'Enterprise-grade auth with OAuth, MFA & RBAC', tag: 'Industry-Level', color: '#10b981', icon: '🔐', techs: ['NextAuth', 'PostgreSQL', 'Redis'] },
-  { title: 'Admin Panel', desc: 'Full-featured CMS & data management system', tag: 'Real Client Simulation', color: '#f59e0b', icon: '⚙️', techs: ['React', 'Prisma', 'tRPC'] },
-  { title: 'Portfolio Website', desc: 'Cinematic developer portfolio with animations', tag: 'Production Grade', color: '#ec4899', icon: '✨', techs: ['Next.js', 'Framer Motion', 'Vercel'] },
-  { title: 'Automation Tool', desc: 'AI-powered workflow automation with integrations', tag: 'Team-Based Project', color: '#8b5cf6', icon: '⚡', techs: ['n8n', 'Python', 'Zapier APIs'] },
-  { title: 'Design System', desc: 'Complete component library with docs & Storybook', tag: 'Industry-Level', color: '#06b6d4', icon: '🎨', techs: ['Figma', 'React', 'Storybook'] },
-  { title: 'E-Commerce App', desc: 'Full-stack store with payments, inventory & analytics', tag: 'Production Grade', color: '#6366f1', icon: '🛒', techs: ['Next.js', 'Stripe', 'Prisma'] },
+  { title: 'AI SaaS Dashboard', desc: 'Multi-tenant analytics platform with AI insights', tag: 'Production Grade', color: '#14B8A6', icon: '📊', techs: ['Next.js', 'OpenAI', 'Supabase'] },
+  { title: 'LMS Platform', desc: 'Full-featured learning platform with video courses', tag: 'Industry-Level', color: '#0B3C6D', icon: '🎓', techs: ['React', 'Node.js', 'AWS S3'] },
+  { title: 'AI Chatbot App', desc: 'Context-aware chatbot with RAG & vector search', tag: 'Team-Based Project', color: '#14B8A6', icon: '🤖', techs: ['Python', 'LangChain', 'Pinecone'] },
+  { title: 'Auth System', desc: 'Enterprise-grade auth with OAuth, MFA & RBAC', tag: 'Industry-Level', color: '#0B3C6D', icon: '🔐', techs: ['NextAuth', 'PostgreSQL', 'Redis'] },
+  { title: 'Admin Panel', desc: 'Full-featured CMS & data management system', tag: 'Real Client Simulation', color: '#F97316', icon: '⚙️', techs: ['React', 'Prisma', 'tRPC'] },
+  { title: 'Portfolio Website', desc: 'Cinematic developer portfolio with animations', tag: 'Production Grade', color: '#14B8A6', icon: '✨', techs: ['Next.js', 'Framer Motion', 'Vercel'] },
+  { title: 'Automation Tool', desc: 'AI-powered workflow automation with integrations', tag: 'Team-Based Project', color: '#F97316', icon: '⚡', techs: ['n8n', 'Python', 'Zapier APIs'] },
+  { title: 'Design System', desc: 'Complete component library with docs & Storybook', tag: 'Industry-Level', color: '#14B8A6', icon: '🎨', techs: ['Figma', 'React', 'Storybook'] },
+  { title: 'E-Commerce App', desc: 'Full-stack store with payments, inventory & analytics', tag: 'Production Grade', color: '#F97316', icon: '🛒', techs: ['Next.js', 'Stripe', 'Prisma'] },
 ]
 
 const TAG_COLORS: Record<string, string> = {
-  'Production Grade': '#10b981',
-  'Industry-Level': '#6366f1',
-  'Team-Based Project': '#f59e0b',
-  'Real Client Simulation': '#ec4899',
+  'Production Grade': '#14B8A6',
+  'Industry-Level': '#0B3C6D',
+  'Team-Based Project': '#F97316',
+  'Real Client Simulation': '#0B3C6D',
 }
 
 export default function ProjectsSection() {
   return (
     <section id="projects" className="section-padding relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(99,102,241,0.06),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(20,184,166,0.06),transparent_70%)]" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
           <span className="tag mb-4 inline-flex">Real-World Projects</span>

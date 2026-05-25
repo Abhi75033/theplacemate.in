@@ -4,21 +4,21 @@ import { motion } from 'framer-motion'
 
 const KANBAN_COLUMNS = [
   {
-    title: 'In Sprint', color: '#6366f1',
+    title: 'In Sprint', color: '#14B8A6',
     tasks: [
       { label: 'feat: implement auth flow', type: 'PR', user: 'AS' },
       { label: 'Review: Payment gateway integration', type: 'Review', user: 'PK' },
     ],
   },
   {
-    title: 'In Review', color: '#f59e0b',
+    title: 'In Review', color: '#F97316',
     tasks: [
       { label: 'feat: RAG pipeline v2', type: 'PR', user: 'RJ' },
       { label: 'fix: mobile layout overflow', type: 'Bug', user: 'AS' },
     ],
   },
   {
-    title: 'Done ✓', color: '#10b981',
+    title: 'Done ✓', color: '#0B3C6D',
     tasks: [
       { label: 'Deploy: production release', type: 'Deploy', user: 'PK' },
       { label: 'docs: API documentation', type: 'Docs', user: 'RJ' },
@@ -44,7 +44,7 @@ export default function InternshipSection() {
   return (
     <section id="internship" className="section-padding relative overflow-hidden bg-[#0a0a12]">
       <div className="absolute inset-0 grid-overlay opacity-30" />
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(ellipse,rgba(99,102,241,0.08),transparent_70%)]" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[radial-gradient(ellipse,rgba(20,184,166,0.06),transparent_70%)]" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
@@ -81,7 +81,7 @@ export default function InternshipSection() {
                           <div className="text-[9px] text-[#94a3b8] mb-1.5 leading-relaxed">{task.label}</div>
                           <div className="flex items-center justify-between">
                             <span className="text-[8px] px-1.5 py-0.5 rounded-full" style={{ background: `${col.color}20`, color: col.color }}>{task.type}</span>
-                            <div className="w-4 h-4 rounded-full bg-gradient-to-br from-[#6366f1] to-[#8b5cf6] flex items-center justify-center text-[6px] text-white font-bold">{task.user}</div>
+                            <div className="w-4 h-4 rounded-full bg-gradient-to-br from-[#14B8A6] to-[#0B3C6D] flex items-center justify-center text-[6px] text-white font-bold">{task.user}</div>
                           </div>
                         </div>
                       ))}
@@ -96,7 +96,7 @@ export default function InternshipSection() {
               <div className="text-sm font-semibold text-white mb-3">This Week's Schedule</div>
               <div className="space-y-2">
                 {STANDUPS.map((s, i) => (
-                  <div key={i} className={`flex items-center gap-3 p-2.5 rounded-lg transition-all ${s.active ? 'bg-[#6366f1]/10 border border-[#6366f1]/20' : 'bg-white/[0.02] border border-transparent'}`}>
+                  <div key={i} className={`flex items-center gap-3 p-2.5 rounded-lg transition-all ${s.active ? 'bg-[#14B8A6]/10 border border-[#14B8A6]/20' : 'bg-white/[0.02] border border-transparent'}`}>
                     <span className="text-lg">{s.emoji}</span>
                     <div className="flex-1">
                       <div className="text-xs font-medium text-white">{s.name}</div>
@@ -125,13 +125,13 @@ export default function InternshipSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
-                    className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:border-[#6366f1]/20 transition-all group"
+                    className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:border-[#14B8A6]/20 transition-all group"
                   >
-                    <div className="w-6 h-6 rounded bg-[#6366f1]/20 flex items-center justify-center mt-0.5 shrink-0">
-                      <span className="text-[10px] text-[#6366f1]">⬡</span>
+                    <div className="w-6 h-6 rounded bg-[#14B8A6]/20 flex items-center justify-center mt-0.5 shrink-0">
+                      <span className="text-[10px] text-[#14B8A6]">⬡</span>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="text-xs font-mono text-[#a78bfa] mb-0.5">{c.hash}</div>
+                      <div className="text-xs font-mono text-[#14B8A6] mb-0.5">{c.hash}</div>
                       <div className="text-xs text-[#94a3b8] truncate">{c.msg}</div>
                       <div className="text-[10px] text-[#475569] mt-0.5">{c.user} · {c.time}</div>
                     </div>
@@ -148,7 +148,7 @@ export default function InternshipSection() {
                 { icon: '📝', title: 'Code Reviews', desc: 'PR reviews just like a real company' },
                 { icon: '🏃', title: 'Agile Sprints', desc: '2-week sprint cycles with retrospectives' },
               ].map((f, i) => (
-                <div key={i} className="glass rounded-xl p-4 border border-white/[0.06] hover:border-[#6366f1]/20 transition-all">
+                <div key={i} className="glass rounded-xl p-4 border border-white/[0.06] hover:border-[#14B8A6]/20 transition-all">
                   <div className="text-2xl mb-2">{f.icon}</div>
                   <div className="text-xs font-semibold text-white mb-1">{f.title}</div>
                   <div className="text-[10px] text-[#64748b]">{f.desc}</div>

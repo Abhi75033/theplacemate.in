@@ -47,16 +47,16 @@ export function InternshipTimeline() {
           {/* Animated active path */}
           <motion.div
             style={{ scaleY, originY: 0 }}
-            className="absolute left-[43px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#6366f1] via-[#8b5cf6] to-[#06b6d4]"
+            className="absolute left-[43px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#14B8A6] via-[#0B3C6D] to-[#F97316]"
           />
 
           {PHASES.map((p, i) => (
             <div key={i} className="relative z-10 glass rounded-2xl p-6 border border-white/[0.06] flex gap-5 items-start bg-[#0a0a12]/80">
-              <div className="w-14 h-14 rounded-xl bg-[#6366f1]/10 border border-[#6366f1]/20 flex items-center justify-center text-2xl shrink-0">
+              <div className="w-14 h-14 rounded-xl bg-[#14B8A6]/10 border border-[#14B8A6]/20 flex items-center justify-center text-2xl shrink-0">
                 {p.icon}
               </div>
               <div>
-                <div className="text-xs text-[#6366f1] font-semibold mb-1">{p.week}</div>
+                <div className="text-xs text-[#14B8A6] font-semibold mb-1">{p.week}</div>
                 <h3 className="text-lg font-bold text-white mb-2">{p.title}</h3>
                 <p className="text-sm text-[#94a3b8] leading-relaxed">{p.desc}</p>
               </div>
@@ -84,7 +84,7 @@ export function InternshipBenefits() {
               whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="glass rounded-2xl p-6 border border-white/[0.06] hover:border-[#6366f1]/20 transition-all card-hover"
+              className="glass rounded-2xl p-6 border border-white/[0.06] hover:border-[#14B8A6]/20 transition-all card-hover"
             >
               <h3 className="text-base font-bold text-white mb-2">{b.title}</h3>
               <p className="text-sm text-[#94a3b8] leading-relaxed">{b.desc}</p>

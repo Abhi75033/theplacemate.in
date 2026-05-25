@@ -6,32 +6,32 @@ import { CheckCircle2 } from 'lucide-react'
 
 const PHASES = [
   {
-    week: 'Weeks 1–2', phase: 'Foundation', icon: '🏗️', color: '#6366f1', tag: 'Beginner',
+    week: 'Weeks 1–2', phase: 'Foundation', icon: '🏗️', color: '#14B8A6', tag: 'Beginner',
     description: 'Environment setup, dev tools, Git/GitHub, coding fundamentals, and team onboarding.',
     milestones: ['Set up professional dev environment', 'Git workflow & version control', 'Command line mastery', 'First mini project deployed'],
   },
   {
-    week: 'Weeks 3–6', phase: 'Core Skills', icon: '⚙️', color: '#8b5cf6', tag: 'Intermediate',
+    week: 'Weeks 3–6', phase: 'Core Skills', icon: '⚙️', color: '#0B3C6D', tag: 'Intermediate',
     description: 'Deep-dive into your chosen track — full stack, AI, design, or DevOps.',
     milestones: ['Core language & framework mastery', 'Build 2 guided projects', 'Weekly code reviews with mentors', 'Portfolio page live on GitHub'],
   },
   {
-    week: 'Weeks 7–10', phase: 'Real Projects', icon: '🚀', color: '#06b6d4', tag: 'Advanced',
+    week: 'Weeks 7–10', phase: 'Real Projects', icon: '🚀', color: '#F97316', tag: 'Advanced',
     description: 'Team-based project sprints simulating a real engineering environment.',
     milestones: ['Team project with agile workflow', 'Sprint planning & retrospectives', 'Code review & pull requests', '2 production-grade apps shipped'],
   },
   {
-    week: 'Weeks 11–12', phase: 'Internship Phase', icon: '💼', color: '#10b981', tag: 'Internship',
+    week: 'Weeks 11–12', phase: 'Internship Phase', icon: '💼', color: '#14B8A6', tag: 'Internship',
     description: 'Work on real client problems with actual startup partners and company workflows.',
     milestones: ['Join a startup partner project', 'Daily standups & task management', 'Mentor-guided code reviews', 'Internship certificate issued'],
   },
   {
-    week: 'Week 13', phase: 'Deployment & Launch', icon: '🌐', color: '#f59e0b', tag: 'Deployment',
+    week: 'Week 13', phase: 'Deployment & Launch', icon: '🌐', color: '#0B3C6D', tag: 'Deployment',
     description: 'Deploy all projects to production with CI/CD pipelines, cloud hosting, and custom domains.',
     milestones: ['Deploy apps to cloud (AWS/Vercel)', 'Set up CI/CD pipelines', 'Portfolio launched with custom domain', 'GitHub profile polished'],
   },
   {
-    week: 'Weeks 14–16', phase: 'Interview & Placement Prep', icon: '🎯', color: '#ec4899', tag: 'Career',
+    week: 'Weeks 14–16', phase: 'Interview & Placement Prep', icon: '🎯', color: '#F97316', tag: 'Career',
     description: 'Intensive placement preparation — resume, LinkedIn, mock interviews, and referrals.',
     milestones: ['Resume & LinkedIn reviewed', '5 mock interview sessions', 'DSA + system design coaching', 'Interview referrals & opportunities'],
   },
@@ -54,7 +54,7 @@ export default function CurriculumTimeline() {
   return (
     <section id="curriculum" className="section-padding relative overflow-hidden bg-[#0a0a12]">
       <div className="absolute inset-0 grid-overlay opacity-30" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[radial-gradient(ellipse,rgba(139,92,246,0.06),transparent_70%)]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-[radial-gradient(ellipse,rgba(20,184,166,0.06),transparent_70%)]" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
           <span className="tag mb-4 inline-flex">16-Week Roadmap</span>
@@ -73,7 +73,7 @@ export default function CurriculumTimeline() {
           {/* Active path (Mobile/Tablet) */}
           <motion.div
             style={{ scaleY, originY: 0 }}
-            className="absolute left-4 sm:left-8 lg:hidden top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#6366f1] via-[#8b5cf6] to-[#06b6d4]"
+            className="absolute left-4 sm:left-8 lg:hidden top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#14B8A6] via-[#0B3C6D] to-[#F97316]"
           />
 
           {/* Background track (Desktop) */}
@@ -81,7 +81,7 @@ export default function CurriculumTimeline() {
           {/* Active path (Desktop) */}
           <motion.div
             style={{ scaleY, originY: 0 }}
-            className="absolute hidden lg:block left-1/2 -translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#6366f1] via-[#8b5cf6] to-[#06b6d4]"
+            className="absolute hidden lg:block left-1/2 -translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#14B8A6] via-[#0B3C6D] to-[#F97316]"
           />
 
           <div className="space-y-8 lg:space-y-12">

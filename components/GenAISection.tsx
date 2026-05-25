@@ -3,12 +3,12 @@
 import { motion } from 'framer-motion'
 
 const AI_FEATURES = [
-  { icon: '🧠', title: 'LLM Applications', desc: 'Build apps with GPT-4, Claude, Gemini & open-source models', color: '#06b6d4' },
-  { icon: '🔍', title: 'RAG Systems', desc: 'Retrieval-Augmented Generation with vector databases', color: '#8b5cf6' },
-  { icon: '🤖', title: 'AI Agents', desc: 'Autonomous agents with tool use and memory systems', color: '#6366f1' },
-  { icon: '⚡', title: 'Automation Workflows', desc: 'n8n, Zapier & custom AI automation pipelines', color: '#10b981' },
-  { icon: '📊', title: 'AI SaaS Tools', desc: 'Production AI products with billing & multi-tenancy', color: '#f59e0b' },
-  { icon: '🗄️', title: 'Vector Databases', desc: 'Pinecone, Weaviate, Chroma for semantic search', color: '#ec4899' },
+  { icon: '🧠', title: 'LLM Applications', desc: 'Build apps with GPT-4, Claude, Gemini & open-source models', color: '#14B8A6' },
+  { icon: '🔍', title: 'RAG Systems', desc: 'Retrieval-Augmented Generation with vector databases', color: '#0B3C6D' },
+  { icon: '🤖', title: 'AI Agents', desc: 'Autonomous agents with tool use and memory systems', color: '#F97316' },
+  { icon: '⚡', title: 'Automation Workflows', desc: 'n8n, Zapier & custom AI automation pipelines', color: '#14B8A6' },
+  { icon: '📊', title: 'AI SaaS Tools', desc: 'Production AI products with billing & multi-tenancy', color: '#0B3C6D' },
+  { icon: '🗄️', title: 'Vector Databases', desc: 'Pinecone, Weaviate, Chroma for semantic search', color: '#F97316' },
 ]
 
 const CODE_SNIPPET = `# Build an AI agent in minutes
@@ -31,16 +31,16 @@ export default function GenAISection() {
     <section id="genai" className="section-padding relative overflow-hidden bg-[#050508]">
       {/* Neural network bg */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(ellipse_at_50%_20%,rgba(6,182,212,0.1),transparent_60%)]" />
-        <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(99,102,241,0.08),transparent_70%)] blur-2xl" />
-        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[radial-gradient(circle,rgba(139,92,246,0.08),transparent_70%)] blur-2xl" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(ellipse_at_50%_20%,rgba(20,184,166,0.06),transparent_60%)]" />
+        <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(11,60,109,0.06),transparent_70%)] blur-2xl" />
+        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-[radial-gradient(circle,rgba(249,115,22,0.06),transparent_70%)] blur-2xl" />
         {/* Animated grid */}
         <div className="absolute inset-0 grid-overlay opacity-30" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
-          <span className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full border border-[#06b6d4]/30 text-[#06b6d4] bg-[#06b6d4]/10 mb-4">
+          <span className="inline-flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full border border-[#14B8A6]/30 text-[#14B8A6] bg-[#14B8A6]/10 mb-4">
             🤖 Generative AI Engineering
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-4">
@@ -73,7 +73,7 @@ export default function GenAISection() {
 
           {/* Right: code snippet */}
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-4">
-            <div className="glass rounded-2xl overflow-hidden border border-[#06b6d4]/20">
+            <div className="glass rounded-2xl overflow-hidden border border-[#14B8A6]/20">
               <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-white/[0.02]">
                 <div className="flex gap-1.5">
                   <div className="w-3 h-3 rounded-full bg-red-500/50" />
@@ -81,18 +81,18 @@ export default function GenAISection() {
                   <div className="w-3 h-3 rounded-full bg-green-500/50" />
                 </div>
                 <span className="text-xs text-[#475569] font-mono ml-2">ai_agent.py</span>
-                <span className="ml-auto text-[10px] text-[#10b981] bg-[#10b981]/10 px-2 py-0.5 rounded-full font-mono">Python</span>
+                <span className="ml-auto text-[10px] text-[#14B8A6] bg-[#14B8A6]/10 px-2 py-0.5 rounded-full font-mono">Python</span>
               </div>
               <pre className="p-5 text-[11px] sm:text-xs font-mono leading-relaxed overflow-x-auto">
                 <code>
                   {CODE_SNIPPET.split('\n').map((line, i) => (
                     <div key={i} className={
                       line.startsWith('#') ? 'text-[#64748b]' :
-                      line.includes('from ') || line.includes('import ') ? 'text-[#06b6d4]' :
-                      line.includes('=') && !line.includes('==') ? 'text-[#f8fafc]' :
-                      line.includes('"') || line.includes("'") ? 'text-[#a78bfa]' :
-                      line.includes('print') || line.includes('agent.run') ? 'text-[#10b981]' :
-                      line.includes('#') ? 'text-[#64748b]' : 'text-[#94a3b8]'
+                      line.includes('from ') || line.includes('import ') ? 'text-[#14B8A6]' :
+                      line.includes('=') && !line.includes('==') ? 'text-[#0F172A]' :
+                      line.includes('"') || line.includes("'") ? 'text-[#0B3C6D]' :
+                      line.includes('print') || line.includes('agent.run') ? 'text-[#F97316]' :
+                      line.includes('#') ? 'text-[#64748b]' : 'text-[#475569]'
                     }>{line}</div>
                   ))}
                 </code>
@@ -104,7 +104,7 @@ export default function GenAISection() {
               <div className="text-xs font-semibold text-white mb-3">AI Tech Stack You'll Master</div>
               <div className="flex flex-wrap gap-2">
                 {['OpenAI GPT-4o', 'LangChain', 'LlamaIndex', 'Pinecone', 'Weaviate', 'Hugging Face', 'Ollama', 'FastAPI', 'Streamlit', 'n8n'].map(t => (
-                  <span key={t} className="text-[10px] px-2.5 py-1 rounded-full border border-[#06b6d4]/30 bg-[#06b6d4]/10 text-[#06b6d4] hover:bg-[#06b6d4]/20 transition-all cursor-default">{t}</span>
+                  <span key={t} className="text-[10px] px-2.5 py-1 rounded-full border border-[#14B8A6]/30 bg-[#14B8A6]/10 text-[#14B8A6] hover:bg-[#14B8A6]/20 transition-all cursor-default">{t}</span>
                 ))}
               </div>
             </div>

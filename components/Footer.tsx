@@ -182,9 +182,15 @@ export default function Footer() {
         <div className="py-10 grid grid-cols-2 sm:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-2 sm:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <Image src="/logo-icon.png" alt="PlaceMate Logo" width={32} height={32} />
-              <span className="text-lg font-bold">Place<span className="gradient-text">Mate</span></span>
+            <Link href="/" className="flex items-center gap-2 mb-4" aria-label="ThePlaceMate - Home">
+              <Image
+                src="/images/theplacemate-logo.png"
+                alt="ThePlaceMate Training and Internship Logo"
+                title="ThePlaceMate"
+                width={120}
+                height={40}
+                className="h-8 w-auto object-contain"
+              />
             </Link>
             <p className="text-xs text-[#64748b] leading-relaxed mb-4 max-w-[200px]">
               Industry-focused tech training and internship programs with real placement support across India.

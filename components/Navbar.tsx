@@ -40,18 +40,17 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-18">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link href="/" className="flex items-center gap-2 group" aria-label="ThePlaceMate - Home">
               <Image
-                src="/logo-icon.png"
-                alt="PlaceMate Logo"
-                width={36}
-                height={36}
-                className="group-hover:drop-shadow-[0_0_12px_rgba(99,102,241,0.5)] transition-all duration-300"
+                src="/images/theplacemate-logo.png"
+                alt="ThePlaceMate Training and Internship Logo"
+                title="ThePlaceMate"
+                width={120}
+                height={40}
+                className="h-9 w-auto object-contain group-hover:drop-shadow-[0_0_12px_rgba(99,102,241,0.5)] transition-all duration-300"
                 priority
+                fetchPriority="high"
               />
-              <span className="text-lg font-bold tracking-tight">
-                Place<span className="gradient-text">Mate</span>
-              </span>
             </Link>
 
             {/* Desktop nav */}

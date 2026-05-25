@@ -67,7 +67,7 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.png',
     shortcut: '/favicon.png',
-    apple: '/logo-icon.png',
+    apple: '/images/theplacemate-logo.png',
   },
   verification: {
     // TODO: Replace with your actual Google Search Console verification code
@@ -84,11 +84,11 @@ const organizationSchema = {
   url: 'https://www.theplacemate.in/',
   logo: {
     '@type': 'ImageObject',
-    url: 'https://www.theplacemate.in/logo.png',
+    url: 'https://www.theplacemate.in/images/theplacemate-logo.png',
     width: 512,
     height: 512,
   },
-  image: 'https://www.theplacemate.in/logo.png',
+  image: 'https://www.theplacemate.in/images/theplacemate-logo.png',
   description: 'Industry-focused tech training platform offering expert-led courses in Full Stack Development, AI, UI/UX Design, DevOps & more with real internships and placement support.',
   foundingDate: '2023',
   sameAs: [

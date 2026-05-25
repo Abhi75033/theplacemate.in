@@ -7,11 +7,11 @@ import Breadcrumb from '@/components/Breadcrumb'
 export const metadata: Metadata = {
   title: 'Placement Records & Success Stories — PlaceMate Results',
   description: 'See PlaceMate placement results, student success stories, and career outcomes. 85% of graduates land interviews within 60 days with an average 3.2x salary growth after completing our programs.',
-  alternates: { canonical: 'https://theplacemate.in/placements' },
+  alternates: { canonical: 'https://www.theplacemate.in/placements/' },
   openGraph: {
     title: 'Placement Records & Success Stories | PlaceMate',
     description: 'Real placement results from PlaceMate graduates. Career transformations with verifiable outcomes.',
-    url: 'https://theplacemate.in/placements',
+    url: 'https://www.theplacemate.in/placements/',
     siteName: 'PlaceMate',
     images: [{ url: '/og-placements.png', width: 1200, height: 630 }],
   },

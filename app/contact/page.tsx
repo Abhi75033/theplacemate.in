@@ -8,11 +8,11 @@ import { Mail, Phone, MapPin, Clock } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Contact PlaceMate — Get in Touch for Enquiries',
   description: 'Reach out to PlaceMate for course enquiries, placement support details, or partnership opportunities. Call, email, or visit us to start your tech career journey today.',
-  alternates: { canonical: 'https://theplacemate.in/contact' },
+  alternates: { canonical: 'https://www.theplacemate.in/contact/' },
   openGraph: {
     title: 'Contact PlaceMate — Enquiries & Support',
     description: 'Get in touch with PlaceMate for training enquiries, demo sessions, and career counseling.',
-    url: 'https://theplacemate.in/contact',
+    url: 'https://www.theplacemate.in/contact/',
     siteName: 'PlaceMate',
     images: [{ url: '/og-contact.png', width: 1200, height: 630 }],
   },
@@ -24,8 +24,8 @@ const contactSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'PlaceMate',
-  url: 'https://theplacemate.in',
-  telephone: '+91-6394753801',
+  url: 'https://www.theplacemate.in/',
+  telephone: '+91-9845953801',
   email: 'hello@theplacemate.in',
   address: {
     '@type': 'PostalAddress',

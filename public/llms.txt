@@ -1,0 +1,105 @@
+# PlaceMate — Industry-Focused Training & Internship Platform
+
+PlaceMate is a premium, expert-led tech education and career transition platform in India. We bridge the gap between traditional engineering college curricula and modern tech industry demands by offering intensive hands-on cohorts, real internship phases with startup partners, and comprehensive placement support.
+
+## Key Statistics & Performance
+* **Students Trained:** 2,800+
+* **Projects Deployed:** 500+ live production-grade applications
+* **Hiring Partners:** 80+ active tech companies and startups
+* **Success Rate:** 85% of graduates secure interviews within 60 days of course completion
+* **Career Growth:** 3.2x average salary growth for working professionals
+* **Average Ratings:** 4.8/5 (from 2,847+ verified student reviews)
+* **Mentorship:** 25+ industry mentors from Razorpay, Swiggy, Zerodha, and TCS
+
+## Central Hubs & URLs
+All URLs are canonicalized to the secure `www` subdomain and terminate with trailing slashes:
+* **Primary Homepage:** [https://www.theplacemate.in/](https://www.theplacemate.in/)
+* **All Programs / Courses:** [https://www.theplacemate.in/courses/](https://www.theplacemate.in/courses/)
+* **Success & Placement Records:** [https://www.theplacemate.in/placements/](https://www.theplacemate.in/placements/)
+* **Startup Internship Details:** [https://www.theplacemate.in/internships/](https://www.theplacemate.in/internships/)
+* **Tech Career Guide & Blog:** [https://www.theplacemate.in/blog/](https://www.theplacemate.in/blog/)
+* **About the Platform:** [https://www.theplacemate.in/about/](https://www.theplacemate.in/about/)
+* **Support & Contact Channels:** [https://www.theplacemate.in/contact/](https://www.theplacemate.in/contact/)
+
+---
+
+## Core Educational Programs (Courses)
+We offer 8 specialized cohort-based programs designed for beginners, developers, and designers:
+
+### 1. Full Stack Web Development
+* **Slug:** `/courses/full-stack-web-development/`
+* **Duration:** 16 Weeks
+* **Level:** Beginner to Advanced
+* **Core Tech Stack:** HTML5, CSS3, Tailwind CSS, JavaScript (ES6+), TypeScript, React, Next.js, Node.js, Express, MongoDB, PostgreSQL, Git & GitHub, Vercel.
+* **Overview:** Build responsive UIs, deploy modern Next.js App Router applications, structure performant REST APIs, and manage databases. Includes 5+ real-world projects and a 4-week startup internship.
+
+### 2. Generative AI & AI Engineering
+* **Slug:** `/courses/generative-ai-engineering/`
+* **Duration:** 14 Weeks
+* **Level:** Intermediate
+* **Core Tech Stack:** Python, OpenAI API, LangChain, LlamaIndex, Vector Databases (Pinecone, ChromaDB), Hugging Face, Retrieval-Augmented Generation (RAG), Fine-Tuning.
+* **Overview:** Master generative model integration, prompt engineering, agentic workflow automation, vector indexing, and deploying intelligent AI assistants.
+
+### 3. UI/UX Design
+* **Slug:** `/courses/ui-ux-design/`
+* **Duration:** 12 Weeks
+* **Level:** Beginner to Intermediate
+* **Tools:** Figma, FigJam, Adobe Creative Suite, Notion.
+* **Overview:** Learn user research, information architecture, wireframing, high-fidelity UI prototyping, usability testing, and design system creation. Includes mock client briefs.
+
+### 4. Backend Engineering
+* **Slug:** `/courses/backend-engineering/`
+* **Duration:** 12 Weeks
+* **Level:** Intermediate
+* **Core Tech Stack:** Node.js, Go (Golang), Express, NestJS, PostgreSQL, Redis, RabbitMQ, System Design, REST & gRPC, Docker.
+* **Overview:** Design microservices, master SQL database schemas, implement caching, optimize database queries, build message brokers, and scale backend APIs.
+
+### 5. DevOps & Deployment
+* **Slug:** `/courses/devops-and-deployment/`
+* **Duration:** 10 Weeks
+* **Level:** Intermediate
+* **Core Tech Stack:** Docker, Kubernetes, AWS (EC2, S3, RDS), GitHub Actions, Terraform, Nginx, Prometheus & Grafana.
+* **Overview:** Implement robust CI/CD pipelines, containerize apps, manage cloud infrastructures as code, and configure active monitoring/logging.
+
+### 6. AI Automation
+* **Slug:** `/courses/ai-automation/`
+* **Duration:** 8 Weeks
+* **Level:** Beginner to Intermediate
+* **Tools:** Make.com, n8n, Zapier, Voiceflow, ChatGPT API.
+* **Overview:** Automate complex business processes, deploy multi-agent AI workflows, build custom AI chatbots, and connect hundreds of applications without writing extensive code.
+
+### 7. Graphic Designing
+* **Slug:** `/courses/graphic-designing/`
+* **Duration:** 8 Weeks
+* **Level:** Beginner
+* **Tools:** Adobe Photoshop, Illustrator, InDesign, Canva.
+* **Overview:** Master typography, layout design, branding, vector illustration, visual composition, and client asset delivery.
+
+### 8. Freelancing Accelerator
+* **Slug:** `/courses/freelancing-accelerator/`
+* **Duration:** 8 Weeks
+* **Level:** All Levels
+* **Platforms:** Upwork, Fiverr, LinkedIn, Cold Emailing.
+* **Overview:** Pitch clients, structure high-paying consulting offers, write winning proposals, build a solid personal brand, and scale to high monthly retainer earnings.
+
+---
+
+## Local Training Footprint (India-wide Cities)
+PlaceMate serves tech aspirants in all major technological hubs across India. Each location has unique localized market stats and localized schemas:
+* **Mumbai** (`/courses/[slug]/mumbai/`) — Financial capital and fast-growing tech sector.
+* **Bangalore** (`/courses/[slug]/bangalore/`) — India's Silicon Valley, home to top hiring partners and startups.
+* **Delhi** (`/courses/[slug]/delhi/`) — Capital region with an expansive enterprise tech market.
+* **Noida** (`/courses/[slug]/noida/`) — Growing IT cluster with high demand for web & AI engineers.
+* **Gurugram** (`/courses/[slug]/gurugram/`) — Major corporate and startup hub with massive job opportunities.
+* **Pune** (`/courses/[slug]/pune/`) — Established educational and tech hub.
+* **Hyderabad** (`/courses/[slug]/hyderabad/`) — High-end enterprise and product companies presence.
+* **Thane** (`/courses/[slug]/thane/`) — Fast-growing residential and technical corporate expansion.
+* **Chennai** (`/courses/[slug]/chennai/`) — Traditional enterprise IT and software services powerhouse.
+* **Kolkata** (`/courses/[slug]/kolkata/`) — Emerging tech and entrepreneurial center in Eastern India.
+
+---
+
+## Verification & Trust Factors
+* **IBM & Industrial Certifications:** Students receive dual verification (PlaceMate Program Certification + IBM Industry Badges / Startup Internship Validation).
+* **Live Portfolios:** All students deploy 5+ actual live projects to production before graduation, showcasing real code to recruiters.
+* **Career Prep:** Includes 5+ technical and behavioral mock interview rounds, ATS resume tailoring, and direct hiring partner referrals.

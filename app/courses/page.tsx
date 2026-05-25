@@ -9,11 +9,11 @@ import { Clock, BarChart2, Briefcase, ChevronRight } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'All Courses — Training Programs with Placement Support',
   description: 'Explore PlaceMate\'s industry-focused training programs in Full Stack Development, AI Engineering, UI/UX Design, DevOps, and more. Expert mentors, real projects, and placement support.',
-  alternates: { canonical: 'https://theplacemate.in/courses' },
+  alternates: { canonical: 'https://www.theplacemate.in/courses/' },
   openGraph: {
     title: 'All Courses — PlaceMate Training Programs',
     description: 'Industry-focused training with real internships and placement support across 8 specialized programs.',
-    url: 'https://theplacemate.in/courses',
+    url: 'https://www.theplacemate.in/courses/',
     siteName: 'PlaceMate',
     images: [{ url: '/og-courses.png', width: 1200, height: 630 }],
   },

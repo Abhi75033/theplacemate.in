@@ -21,11 +21,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     title: post.title,
     description: post.description,
     keywords: post.keywords,
-    alternates: { canonical: `https://theplacemate.in/blog/${post.slug}` },
+    alternates: { canonical: `https://www.theplacemate.in/blog/${post.slug}/` },
     openGraph: {
       title: post.title,
       description: post.description,
-      url: `https://theplacemate.in/blog/${post.slug}`,
+      url: `https://www.theplacemate.in/blog/${post.slug}/`,
       siteName: 'PlaceMate',
       type: 'article',
       publishedTime: post.date,

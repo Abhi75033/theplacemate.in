@@ -7,12 +7,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const navLinks = [
-  { href: '/courses', label: 'Courses' },
-  { href: '/internships', label: 'Internships' },
-  { href: '/placements', label: 'Placements' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/courses/', label: 'Courses' },
+  { href: '/internships/', label: 'Internships' },
+  { href: '/placements/', label: 'Placements' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/about/', label: 'About' },
+  { href: '/contact/', label: 'Contact' },
 ]
 
 export default function Navbar() {
@@ -70,13 +70,13 @@ export default function Navbar() {
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-3">
               <Link
-                href="/courses"
+                href="/courses/"
                 className="text-sm font-medium text-[#94a3b8] hover:text-white transition-colors"
               >
                 Explore Programs
               </Link>
               <Link
-                href="/contact"
+                href="/contact/"
                 className="btn-primary text-sm flex items-center gap-1.5 relative z-10"
               >
                 <span className="relative z-10">Apply Now</span>
@@ -119,14 +119,14 @@ export default function Navbar() {
               ))}
               <div className="pt-2 pb-1 flex flex-col gap-2">
                 <Link
-                  href="/contact"
+                  href="/contact/"
                   onClick={() => setMobileOpen(false)}
                   className="btn-primary text-sm text-center relative z-10"
                 >
                   <span className="relative z-10">Apply Now</span>
                 </Link>
                 <Link
-                  href="/courses"
+                  href="/courses/"
                   onClick={() => setMobileOpen(false)}
                   className="btn-secondary text-sm text-center"
                 >

@@ -18,18 +18,18 @@ const COURSE_CATEGORIES: Record<string, string[]> = {
 const TOP_CITY_SLUGS = ['mumbai','pune','delhi','bangalore','hyderabad','chennai','kolkata','noida','gurugram','ahmedabad','jaipur','thane','lucknow','chandigarh','kochi','surat','nagpur','indore','nashik','coimbatore']
 
 const POPULAR_COMBOS = [
-  { label: 'Full Stack Dev in Mumbai', href: '/courses/full-stack-web-development/mumbai' },
-  { label: 'Data Science in Bangalore', href: '/courses/data-science/bangalore' },
-  { label: 'Digital Marketing in Delhi', href: '/courses/digital-marketing/delhi' },
-  { label: 'MERN Stack in Pune', href: '/courses/mern-stack-development/pune' },
-  { label: 'Software Testing in Hyderabad', href: '/courses/software-testing/hyderabad' },
-  { label: 'Python Dev in Chennai', href: '/courses/python-development/chennai' },
-  { label: 'Java Dev in Noida', href: '/courses/java-development/noida' },
-  { label: 'Cloud Computing in Gurugram', href: '/courses/cloud-computing/gurugram' },
-  { label: 'AI Engineering in Kolkata', href: '/courses/generative-ai-engineering/kolkata' },
-  { label: 'Data Analytics in Ahmedabad', href: '/courses/data-analytics/ahmedabad' },
-  { label: 'HR Management in Jaipur', href: '/courses/human-resource-management/jaipur' },
-  { label: 'Video Editing in Mumbai', href: '/courses/video-editing/mumbai' },
+  { label: 'Full Stack Dev in Mumbai', href: '/courses/full-stack-web-development/mumbai/' },
+  { label: 'Data Science in Bangalore', href: '/courses/data-science/bangalore/' },
+  { label: 'Digital Marketing in Delhi', href: '/courses/digital-marketing/delhi/' },
+  { label: 'MERN Stack in Pune', href: '/courses/mern-stack-development/pune/' },
+  { label: 'Software Testing in Hyderabad', href: '/courses/software-testing/hyderabad/' },
+  { label: 'Python Dev in Chennai', href: '/courses/python-development/chennai/' },
+  { label: 'Java Dev in Noida', href: '/courses/java-development/noida/' },
+  { label: 'Cloud Computing in Gurugram', href: '/courses/cloud-computing/gurugram/' },
+  { label: 'AI Engineering in Kolkata', href: '/courses/generative-ai-engineering/kolkata/' },
+  { label: 'Data Analytics in Ahmedabad', href: '/courses/data-analytics/ahmedabad/' },
+  { label: 'HR Management in Jaipur', href: '/courses/human-resource-management/jaipur/' },
+  { label: 'Video Editing in Mumbai', href: '/courses/video-editing/mumbai/' },
 ]
 
 function ExpandableSection({ title, icon, children, previewCount, totalCount }: { title: string; icon?: React.ReactNode; children: React.ReactNode; previewCount: number; totalCount: number }) {
@@ -83,11 +83,11 @@ export default function Footer() {
               <p className="text-[#94a3b8] text-sm">Join 2,800+ students already on their career journey.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 sm:justify-end">
-              <Link href="/contact" className="btn-primary flex items-center justify-center gap-2 text-sm relative z-10">
+              <Link href="/contact/" className="btn-primary flex items-center justify-center gap-2 text-sm relative z-10">
                 <span className="relative z-10">Apply Now</span>
                 <ArrowRight className="w-4 h-4 relative z-10" />
               </Link>
-              <Link href="/courses" className="btn-secondary flex items-center justify-center gap-2 text-sm">
+              <Link href="/courses/" className="btn-secondary flex items-center justify-center gap-2 text-sm">
                 Explore Programs
               </Link>
             </div>
@@ -106,7 +106,7 @@ export default function Footer() {
                   <ul className="space-y-1.5">
                     {courses.map(c => (
                       <li key={c.slug}>
-                        <Link href={`/courses/${c.slug}`} className="text-xs text-[#64748b] hover:text-[#94a3b8] transition-colors flex items-center gap-1">
+                        <Link href={`/courses/${c.slug}/`} className="text-xs text-[#64748b] hover:text-[#94a3b8] transition-colors flex items-center gap-1">
                           <span>{c.icon}</span> {c.title}
                         </Link>
                       </li>
@@ -136,7 +136,7 @@ export default function Footer() {
           <div className="flex flex-wrap gap-x-1 gap-y-1.5 mb-2">
             {topCities.map((city, i) => (
               <span key={city.slug} className="inline-flex items-center">
-                <Link href={`/courses/full-stack-web-development/${city.slug}`} className="text-xs text-[#64748b] hover:text-[#6366f1] transition-colors">
+                <Link href={`/courses/full-stack-web-development/${city.slug}/`} className="text-xs text-[#64748b] hover:text-[#6366f1] transition-colors">
                   {city.name}
                 </Link>
                 {i < topCities.length - 1 && <span className="text-[#1e293b] mx-1.5">·</span>}
@@ -152,7 +152,7 @@ export default function Footer() {
                   <div className="flex flex-wrap gap-x-1 gap-y-1.5">
                     {remainingCities.map((city, i) => (
                       <span key={city.slug} className="inline-flex items-center">
-                        <Link href={`/courses/full-stack-web-development/${city.slug}`} className="text-[11px] text-[#475569] hover:text-[#6366f1] transition-colors">
+                        <Link href={`/courses/full-stack-web-development/${city.slug}/`} className="text-[11px] text-[#475569] hover:text-[#6366f1] transition-colors">
                           {city.name}
                         </Link>
                         {i < remainingCities.length - 1 && <span className="text-[#1e293b] mx-1">·</span>}
@@ -209,12 +209,14 @@ export default function Footer() {
             <div className="text-xs font-semibold text-white uppercase tracking-wider mb-3">Company</div>
             <ul className="space-y-2">
               {[
-                { label: 'About Us', href: '/about' },
-                { label: 'Blog', href: '/blog' },
-                { label: 'Placements', href: '/placements' },
-                { label: 'Internships', href: '/internships' },
-                { label: 'All Courses', href: '/courses' },
-                { label: 'Contact', href: '/contact' },
+                { label: 'About Us', href: '/about/' },
+                { label: 'Blog', href: '/blog/' },
+                { label: 'Placements', href: '/placements/' },
+                { label: 'Internships', href: '/internships/' },
+                { label: 'All Courses', href: '/courses/' },
+                { label: 'Courses by City', href: '/courses-by-city/' },
+                { label: 'Best Tech Courses', href: '/best-tech-courses-india/' },
+                { label: 'Contact', href: '/contact/' },
               ].map(l => (
                 <li key={l.label}><Link href={l.href} className="text-xs text-[#64748b] hover:text-[#94a3b8] transition-colors">{l.label}</Link></li>
               ))}
@@ -226,11 +228,11 @@ export default function Footer() {
             <div className="text-xs font-semibold text-white uppercase tracking-wider mb-3">Resources</div>
             <ul className="space-y-2">
               {[
-                { label: 'Career Guides', href: '/blog' },
-                { label: 'Success Stories', href: '/placements' },
-                { label: 'DS vs Web Dev', href: '/blog/data-science-vs-web-development-2025' },
-                { label: 'Internship Guide', href: '/blog/how-to-get-it-internship-india-fresher' },
-                { label: 'Top IT Courses', href: '/blog/top-10-it-courses-after-12th-india-2025' },
+                { label: 'Career Guides', href: '/blog/' },
+                { label: 'Success Stories', href: '/placements/' },
+                { label: 'DS vs Web Dev', href: '/blog/data-science-vs-web-development-2025/' },
+                { label: 'Internship Guide', href: '/blog/how-to-get-it-internship-india-fresher/' },
+                { label: 'Top IT Courses', href: '/blog/top-10-it-courses-after-12th-india-2025/' },
               ].map(l => (
                 <li key={l.label}><Link href={l.href} className="text-xs text-[#64748b] hover:text-[#94a3b8] transition-colors">{l.label}</Link></li>
               ))}
@@ -257,11 +259,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="py-6 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#475569]">
-          <span>© 2025 PlaceMate. All rights reserved.</span>
+          <span>© 2025 PlaceMate. All rights reserved. Registered Address: 12th Floor, Trade Tower, Bandra Kurla Complex, Mumbai, Maharashtra 400051.</span>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-[#94a3b8] transition-colors">Privacy</a>
-            <a href="#" className="hover:text-[#94a3b8] transition-colors">Terms</a>
-            <a href="#" className="hover:text-[#94a3b8] transition-colors">Cookies</a>
+            <Link href="/privacy-policy/" className="hover:text-[#94a3b8] transition-colors">Privacy Policy</Link>
+            <Link href="/terms/" className="hover:text-[#94a3b8] transition-colors">Terms of Service</Link>
           </div>
           <span>Made with ❤️ for aspiring engineers</span>
         </div>

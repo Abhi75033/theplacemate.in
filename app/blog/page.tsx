@@ -9,11 +9,11 @@ import { Clock, ArrowRight } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Blog — Tech Career Guides, Course Reviews & Industry Insights',
   description: 'Read PlaceMate\'s blog for career guides, course comparisons, placement tips, and tech industry insights. Actionable advice for students, freshers, and professionals.',
-  alternates: { canonical: 'https://theplacemate.in/blog' },
+  alternates: { canonical: 'https://www.theplacemate.in/blog/' },
   openGraph: {
     title: 'PlaceMate Blog — Career Guides & Tech Insights',
     description: 'Actionable career guides, course reviews, and tech industry insights from PlaceMate.',
-    url: 'https://theplacemate.in/blog',
+    url: 'https://www.theplacemate.in/blog/',
     siteName: 'PlaceMate',
     images: [{ url: '/og-blog.png', width: 1200, height: 630 }],
   },

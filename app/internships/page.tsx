@@ -10,11 +10,11 @@ import { InternshipTimeline, InternshipBenefits } from '@/components/InternshipS
 export const metadata: Metadata = {
   title: 'Internship Programs — Real Work Experience at PlaceMate',
   description: 'PlaceMate internship programs offer real-world project experience with startup partners. Gain verifiable internship certificates, build your portfolio, and prepare for full-time roles.',
-  alternates: { canonical: 'https://theplacemate.in/internships' },
+  alternates: { canonical: 'https://www.theplacemate.in/internships/' },
   openGraph: {
     title: 'Internship Programs — Real Work Experience | PlaceMate',
     description: 'Structured internships with real companies. Build production projects, gain experience, earn certificates.',
-    url: 'https://theplacemate.in/internships',
+    url: 'https://www.theplacemate.in/internships/',
     siteName: 'PlaceMate',
     images: [{ url: '/og-internships.png', width: 1200, height: 630 }],
   },

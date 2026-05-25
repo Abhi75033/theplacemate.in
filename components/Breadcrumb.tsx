@@ -9,7 +9,7 @@ interface BreadcrumbItem {
 
 export default function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
   const allItems = [{ label: 'Home', href: '/' }, ...items]
-  const schemaItems = allItems.map(i => ({ name: i.label, url: `https://theplacemate.in${i.href}` }))
+  const schemaItems = allItems.map(i => ({ name: i.label, url: `https://www.theplacemate.in${i.href}` }))
 
   return (
     <>

@@ -19,7 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://theplacemate.in'),
+  metadataBase: new URL('https://www.theplacemate.in'),
   title: {
     default: 'PlaceMate — Industry-Focused Training & Internship Platform',
     template: '%s | PlaceMate',
@@ -36,16 +36,16 @@ export const metadata: Metadata = {
     'coding bootcamp India',
     'online training with placement',
   ],
-  authors: [{ name: 'PlaceMate', url: 'https://theplacemate.in' }],
+  authors: [{ name: 'PlaceMate', url: 'https://www.theplacemate.in/' }],
   creator: 'PlaceMate',
   publisher: 'PlaceMate',
-  alternates: { canonical: 'https://theplacemate.in' },
+  alternates: { canonical: '/' },
   openGraph: {
     title: 'PlaceMate — Industry-Focused Training & Internship Platform',
     description:
       'Expert-led training with real projects, internships, and placement support. Full Stack, AI, UI/UX, DevOps & more.',
     type: 'website',
-    url: 'https://theplacemate.in',
+    url: 'https://www.theplacemate.in/',
     siteName: 'PlaceMate',
     locale: 'en_IN',
     images: [
@@ -81,14 +81,14 @@ const organizationSchema = {
   '@type': ['Organization', 'EducationalOrganization'],
   name: 'PlaceMate',
   alternateName: 'PlaceMate India',
-  url: 'https://theplacemate.in',
+  url: 'https://www.theplacemate.in/',
   logo: {
     '@type': 'ImageObject',
-    url: 'https://theplacemate.in/logo.png',
+    url: 'https://www.theplacemate.in/logo.png',
     width: 512,
     height: 512,
   },
-  image: 'https://theplacemate.in/logo.png',
+  image: 'https://www.theplacemate.in/logo.png',
   description: 'Industry-focused tech training platform offering expert-led courses in Full Stack Development, AI, UI/UX Design, DevOps & more with real internships and placement support.',
   foundingDate: '2023',
   sameAs: [
@@ -115,10 +115,10 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'PlaceMate',
-  url: 'https://theplacemate.in',
+  url: 'https://www.theplacemate.in/',
   potentialAction: {
     '@type': 'SearchAction',
-    target: 'https://theplacemate.in/courses?q={search_term_string}',
+    target: 'https://www.theplacemate.in/courses/?q={search_term_string}',
     'query-input': 'required name=search_term_string',
   },
 }

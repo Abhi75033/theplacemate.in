@@ -14,7 +14,7 @@ import CourseHeroAnimation from '@/components/CourseHeroAnimation'
 import { COURSES, getCourseBySlug, getRelatedCourses } from '@/lib/courses'
 import { getCurriculum, getFAQs, getTestimonials } from '@/lib/course-details'
 import { TIER1_INDIA } from '@/lib/cities'
-import { courseSchema, faqSchema } from '@/lib/schemas'
+import { courseSchema, faqSchema, breadcrumbSchema } from '@/lib/schemas'
 import { Clock, BarChart2, Monitor, Briefcase, CheckCircle2, Quote, ChevronRight } from 'lucide-react'
 
 export const revalidate = 86400
@@ -26,20 +26,25 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const course = getCourseBySlug(params.slug)
   if (!course) return {}
+
+  const isIncomplete = !course.description || course.description.trim() === '' || !course.outcomes || course.outcomes.length === 0
+
   return {
     title: `${course.title} Training & Certification | Placement Support`,
     description: `Master ${course.title} with PlaceMate's expert-led ${course.duration} program. Hands-on projects, real internship experience, and placement assistance. Enroll at theplacemate.in.`,
     keywords: [course.title, `${course.title} training`, `${course.title} course`, `${course.title} certification`, 'placement support', 'online training', 'PlaceMate', 'internship', ...course.techs.slice(0, 3)],
-    alternates: { canonical: `https://theplacemate.in/courses/${course.slug}` },
+    alternates: { canonical: `https://www.theplacemate.in/courses/${course.slug}/` },
     openGraph: {
       title: `${course.title} Training & Certification | PlaceMate`,
       description: `Expert-led ${course.title} program with hands-on projects, internship, and placement support.`,
-      url: `https://theplacemate.in/courses/${course.slug}`,
+      url: `https://www.theplacemate.in/courses/${course.slug}/`,
       siteName: 'PlaceMate',
       images: [{ url: '/logo.png', width: 1200, height: 630 }],
     },
     twitter: { card: 'summary_large_image', title: `${course.title} | PlaceMate`, description: `${course.duration} program with projects, internship & placement support.` },
-    robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+    robots: isIncomplete 
+      ? { index: false, follow: false }
+      : { index: true, follow: true, googleBot: { index: true, follow: true } },
   }
 }
 
@@ -57,6 +62,11 @@ export default function CourseDetailPage({ params }: { params: { slug: string } 
     <main className="pb-16 md:pb-0">
       <Navbar />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema({ name: course.title, description: course.description, slug: course.slug, duration: course.duration })) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema([
+        { name: 'Home', url: 'https://www.theplacemate.in/' },
+        { name: 'Courses', url: 'https://www.theplacemate.in/courses/' },
+        { name: course.title, url: `https://www.theplacemate.in/courses/${course.slug}/` },
+      ])) }} />
       {faqs.length > 0 && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(faqs)) }} />}
 
       {/* Hero */}
@@ -208,12 +218,12 @@ export default function CourseDetailPage({ params }: { params: { slug: string } 
           <p className="text-sm text-[#64748b] text-center mb-8">Click any city to see location-specific details and job market information</p>
           <div className="flex flex-wrap justify-center gap-2">
             {topCities.map(city => (
-              <Link key={city.slug} href={`/courses/${course.slug}/${city.slug}`}
+              <Link key={city.slug} href={`/courses/${course.slug}/${city.slug}/`}
                 className="text-xs glass px-3 py-1.5 rounded-full border border-white/[0.06] text-[#94a3b8] hover:text-white hover:border-[#6366f1]/30 transition-all">
                 {city.name}
               </Link>
             ))}
-            <Link href={`/courses/${course.slug}/mumbai`} className="text-xs px-3 py-1.5 rounded-full border border-[#6366f1]/30 text-[#6366f1] font-medium">
+            <Link href={`/courses/${course.slug}/mumbai/`} className="text-xs px-3 py-1.5 rounded-full border border-[#6366f1]/30 text-[#6366f1] font-medium">
               Browse All Cities →
             </Link>
           </div>
@@ -226,7 +236,7 @@ export default function CourseDetailPage({ params }: { params: { slug: string } 
           <h2 className="text-2xl font-black text-white text-center mb-8">Related <span className="gradient-text">Programs</span></h2>
           <div className="grid sm:grid-cols-3 gap-5">
             {related.map(r => (
-              <Link key={r.slug} href={`/courses/${r.slug}`} className="glass rounded-2xl p-5 border border-white/[0.06] hover:border-white/[0.15] transition-all card-hover block">
+              <Link key={r.slug} href={`/courses/${r.slug}/`} className="glass rounded-2xl p-5 border border-white/[0.06] hover:border-white/[0.15] transition-all card-hover block">
                 <div className="text-3xl mb-3">{r.icon}</div>
                 <h3 className="text-base font-bold text-white mb-1">{r.title}</h3>
                 <p className="text-xs text-[#64748b] mb-3">{r.shortDesc}</p>

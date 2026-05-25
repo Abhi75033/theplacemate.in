@@ -11,8 +11,7 @@ import CertificatesSection from '@/components/CertificatesSection'
 import { COURSES, getCourseBySlug } from '@/lib/courses'
 import { ALL_CITIES, getCityBySlug } from '@/lib/cities'
 import { getCityContent } from '@/lib/city-content'
-import { localBusinessSchema } from '@/lib/schemas'
-import { faqSchema } from '@/lib/schemas'
+import { localBusinessSchema, faqSchema, breadcrumbSchema } from '@/lib/schemas'
 import { CheckCircle2, Clock, BarChart2, Monitor, Briefcase, MapPin } from 'lucide-react'
 
 export const revalidate = 86400
@@ -33,23 +32,27 @@ export async function generateMetadata({ params }: { params: { slug: string; cit
   const city = getCityBySlug(params.city)
   if (!course || !city) return {}
 
+  const isIncomplete = !course.description || course.description.trim() === '' || !course.outcomes || course.outcomes.length === 0
+
   return {
     title: `Best ${course.title} Training in ${city.name} 2025 | Placement Support`,
     description: `Looking for ${course.title} training in ${city.name}? PlaceMate offers expert-led ${course.title} courses with hands-on projects and placement assistance. Enroll now at theplacemate.in.`,
     keywords: [`${course.title} training ${city.name}`, `${course.title} course ${city.name}`, `best ${course.title.toLowerCase()} institute ${city.name}`, 'PlaceMate', 'placement support', ...course.techs.slice(0, 3)],
     alternates: {
-      canonical: `https://theplacemate.in/courses/${course.slug}/${city.slug}`,
-      languages: { [city.hreflang]: `https://theplacemate.in/courses/${course.slug}/${city.slug}` },
+      canonical: `https://www.theplacemate.in/courses/${course.slug}/${city.slug}/`,
+      languages: { [city.hreflang]: `https://www.theplacemate.in/courses/${course.slug}/${city.slug}/` },
     },
     openGraph: {
       title: `${course.title} Training in ${city.name} | PlaceMate`,
       description: `Expert-led ${course.title} training accessible from ${city.name} with real projects and placement support.`,
-      url: `https://theplacemate.in/courses/${course.slug}/${city.slug}`,
+      url: `https://www.theplacemate.in/courses/${course.slug}/${city.slug}/`,
       siteName: 'PlaceMate',
       images: [{ url: '/logo.png', width: 1200, height: 630 }],
     },
     twitter: { card: 'summary_large_image', title: `${course.title} in ${city.name} | PlaceMate`, description: `Expert-led training with placement support in ${city.name}.` },
-    robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+    robots: isIncomplete 
+      ? { index: false, follow: false }
+      : { index: true, follow: true, googleBot: { index: true, follow: true } },
   }
 }
 
@@ -65,6 +68,12 @@ export default function LocationCoursePage({ params }: { params: { slug: string;
     <main className="pb-16 md:pb-0">
       <Navbar />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema(city.name)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema([
+        { name: 'Home', url: 'https://www.theplacemate.in/' },
+        { name: 'Courses', url: 'https://www.theplacemate.in/courses/' },
+        { name: course.title, url: `https://www.theplacemate.in/courses/${course.slug}/` },
+        { name: city.name, url: `https://www.theplacemate.in/courses/${course.slug}/${city.slug}/` },
+      ])) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(content.faqs)) }} />
 
       {/* Hero */}
@@ -279,7 +288,7 @@ export default function LocationCoursePage({ params }: { params: { slug: string;
             <a href="#enroll-city" className="btn-primary inline-flex items-center gap-2 relative z-10">
               <span className="relative z-10">Enroll Today</span>
             </a>
-            <Link href={`/courses/${course.slug}`} className="btn-secondary inline-flex items-center gap-2">
+            <Link href={`/courses/${course.slug}/`} className="btn-secondary inline-flex items-center gap-2">
               View Full Curriculum
             </Link>
           </div>
@@ -292,7 +301,7 @@ export default function LocationCoursePage({ params }: { params: { slug: string;
           <h2 className="text-xl font-black text-white text-center mb-6">Other programs available in {city.name}</h2>
           <div className="grid sm:grid-cols-3 gap-4">
             {otherCourses.map(r => (
-              <Link key={r.slug} href={`/courses/${r.slug}/${city.slug}`} className="glass rounded-xl p-4 border border-white/[0.06] hover:border-white/[0.15] transition-all block text-center">
+              <Link key={r.slug} href={`/courses/${r.slug}/${city.slug}/`} className="glass rounded-xl p-4 border border-white/[0.06] hover:border-white/[0.15] transition-all block text-center">
                 <div className="text-2xl mb-2">{r.icon}</div>
                 <div className="text-sm font-semibold text-white">{r.title}</div>
                 <div className="text-xs text-[#64748b] mt-1">in {city.name}</div>
@@ -300,7 +309,7 @@ export default function LocationCoursePage({ params }: { params: { slug: string;
             ))}
           </div>
           <div className="text-center mt-6">
-            <Link href="/courses" className="text-sm text-[#6366f1] hover:text-[#8b5cf6] transition-colors">
+            <Link href="/courses/" className="text-sm text-[#6366f1] hover:text-[#8b5cf6] transition-colors">
               ← View All Courses
             </Link>
           </div>

@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  trailingSlash: true,
   reactStrictMode: true,
   compress: true,
   poweredByHeader: false,
@@ -14,13 +15,12 @@ const nextConfig = {
   async redirects() {
     const { redirects: customRedirects } = require('./lib/redirects')
     return [
-      { source: '/courses/:slug/', destination: '/courses/:slug', permanent: true },
-      { source: '/courses/:slug/:city/', destination: '/courses/:slug/:city', permanent: true },
-      { source: '/blog/:slug/', destination: '/blog/:slug', permanent: true },
-      { source: '/about/', destination: '/about', permanent: true },
-      { source: '/contact/', destination: '/contact', permanent: true },
-      { source: '/internships/', destination: '/internships', permanent: true },
-      { source: '/placements/', destination: '/placements', permanent: true },
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'theplacemate.in' }],
+        destination: 'https://www.theplacemate.in/:path*',
+        permanent: true,
+      },
       ...customRedirects,
     ]
   },

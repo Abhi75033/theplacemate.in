@@ -7,11 +7,11 @@ import Breadcrumb from '@/components/Breadcrumb'
 export const metadata: Metadata = {
   title: 'About PlaceMate — Our Mission, Vision & Training Approach',
   description: 'PlaceMate is an industry-focused training and internship platform helping students, freshers, and professionals build real skills with expert mentorship and placement support.',
-  alternates: { canonical: 'https://theplacemate.in/about' },
+  alternates: { canonical: 'https://www.theplacemate.in/about/' },
   openGraph: {
     title: 'About PlaceMate — Our Mission & Training Approach',
     description: 'Learn about PlaceMate\'s mission to bridge the gap between education and employment through hands-on training, real internships, and career support.',
-    url: 'https://theplacemate.in/about',
+    url: 'https://www.theplacemate.in/about/',
     siteName: 'PlaceMate',
     images: [{ url: '/og-about.png', width: 1200, height: 630 }],
   },

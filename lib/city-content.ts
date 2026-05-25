@@ -2,7 +2,7 @@ import { CityData } from './cities'
 import { CourseData } from './courses'
 
 // Priority city slugs — these get extra deep content for ranking boost
-const PRIORITY_CITY_SLUGS = new Set([
+export const INDEXABLE_CITY_SLUGS = new Set([
   // Maharashtra
   'mumbai', 'thane', 'pune', 'nashik', 'nagpur', 'aurangabad', 'navi-mumbai',
   'kalyan', 'dombivali', 'panvel', 'pimpri-chinchwad', 'solapur', 'kolhapur',
@@ -165,7 +165,7 @@ function getDefaultCityData(city: CityData, course: CourseData): { industries: s
 
 export function getCityContent(city: CityData, course: CourseData): CityIndustryData {
   const data = CITY_INDUSTRIES[city.slug] || getDefaultCityData(city, course)
-  const isPriority = PRIORITY_CITY_SLUGS.has(city.slug)
+  const isPriority = INDEXABLE_CITY_SLUGS.has(city.slug)
   // Use different hash seeds per template type for maximum variation
   const hIntro = hashStr(city.name + course.slug + 'intro')
   const hFaq = hashStr(city.name + course.slug + 'faq')

@@ -367,38 +367,112 @@ body {
   background-color: rgba(11, 60, 109, 0.02) !important;
 }
 
+/* Redirection of Tailwind Gradient Background Fades for marquee, etc. */
+.from-\[\#0a0a12\]:not(footer, footer *, .terminal, .terminal *) {
+  --tw-gradient-from: #ffffff !important;
+  --tw-gradient-to: rgba(255, 255, 255, 0) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+.to-\[\#0a0a12\]:not(footer, footer *, .terminal, .terminal *) {
+  --tw-gradient-from: rgba(255, 255, 255, 0) !important;
+  --tw-gradient-to: #ffffff !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
+.from-\[\#050508\]:not(footer, footer *, .terminal, .terminal *) {
+  --tw-gradient-from: var(--bg) !important;
+  --tw-gradient-to: rgba(248, 250, 252, 0) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+.to-\[\#050508\]:not(footer, footer *, .terminal, .terminal *) {
+  --tw-gradient-from: rgba(248, 250, 252, 0) !important;
+  --tw-gradient-to: var(--bg) !important;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+}
+
 /* Scrollbar adaptation inside sections */
 .scrollbar-thin::-webkit-scrollbar-thumb {
   background: var(--secondary) !important;
 }
 
-/* Dynamic Text Color Adaptation for High Contrast & Premium Aesthetics */
-body :not(footer):not(.btn-primary):not(.btn-secondary):not(.tag):not(.badge):not(.terminal) > .text-slate-400,
-body :not(footer):not(.btn-primary):not(.btn-secondary):not(.tag):not(.badge):not(.terminal) > .text-gray-400,
-body :not(footer):not(.btn-primary):not(.btn-secondary):not(.tag):not(.badge):not(.terminal) > .text-\[\#94a3b8\] {
-  color: #475569 !important; /* Muted reading slate gray */
+/* ==========================================
+   ROBUST DESCENDANT TEXT OVERRIDES
+   ========================================== */
+
+/* Redirection of white text on light backgrounds */
+.text-white:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *) {
+  color: var(--text) !important;
 }
 
-body :not(footer):not(.btn-primary):not(.btn-secondary):not(.tag):not(.badge):not(.terminal) > .text-slate-300,
-body :not(footer):not(.btn-primary):not(.btn-secondary):not(.tag):not(.badge):not(.terminal) > .text-gray-300,
-body :not(footer):not(.btn-primary):not(.btn-secondary):not(.tag):not(.badge):not(.terminal) > .text-white\/80 {
-  color: #1e293b !important; /* Semi-dark slate gray */
+.text-slate-100:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *),
+.text-slate-200:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *),
+.text-gray-100:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *),
+.text-gray-200:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *),
+.text-white\/80:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *) {
+  color: #1e293b !important;
 }
 
-body :not(footer):not(.btn-primary):not(.btn-secondary):not(.tag):not(.badge):not(.terminal) > .text-slate-500,
-body :not(footer):not(.btn-primary):not(.btn-secondary):not(.tag):not(.badge):not(.terminal) > .text-gray-500,
-body :not(footer):not(.btn-primary):not(.btn-secondary):not(.tag):not(.badge):not(.terminal) > .text-white\/40 {
-  color: #64748b !important; /* Muted helper gray */
+/* Redirection of slate muted text classes */
+.text-slate-400:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *),
+.text-gray-400:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *),
+.text-\[\#94a3b8\]:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *) {
+  color: #475569 !important; /* Premium dark slate */
 }
 
-body :not(footer):not(.btn-primary):not(.btn-secondary):not(.tag):not(.badge):not(.terminal) > .text-white\/60,
-body :not(footer):not(.btn-primary):not(.btn-secondary):not(.tag):not(.badge):not(.terminal) > .text-white\/70 {
+.text-white\/60:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *),
+.text-white\/70:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *) {
   color: #334155 !important;
 }
 
-body :not(footer):not(.btn-primary):not(.btn-secondary):not(.tag):not(.badge):not(.terminal):not(span):not(h1):not(h2):not(h3):not(h4):not(a) > .text-white {
-  color: var(--text) !important;
+.text-slate-500:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *),
+.text-gray-500:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *),
+.text-white\/40:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *) {
+  color: #64748b !important; /* Muted slate */
 }
+
+.text-\[\#64748b\]:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *),
+.text-\[\#475569\]:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *) {
+  color: #475569 !important;
+}
+
+/* ==========================================
+   FOOTER TEXT AND CLASS SPECIFIC OVERRIDES
+   ========================================== */
+footer .glass {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: none !important;
+}
+footer .glass-strong {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+footer .text-white\/40 { color: rgba(255, 255, 255, 0.4) !important; }
+footer .text-white\/60 { color: rgba(255, 255, 255, 0.6) !important; }
+footer .text-white\/70 { color: rgba(255, 255, 255, 0.7) !important; }
+footer .text-white\/80 { color: rgba(255, 255, 255, 0.8) !important; }
+footer .text-white { color: #ffffff !important; }
+footer .text-slate-300, footer .text-gray-300 { color: rgba(255, 255, 255, 0.85) !important; }
+footer .text-slate-400, footer .text-gray-400 { color: rgba(255, 255, 255, 0.65) !important; }
+footer .text-slate-500, footer .text-gray-500 { color: rgba(255, 255, 255, 0.45) !important; }
+footer .text-\[\#64748b\], footer .text-\[\#475569\], footer .text-\[\#94a3b8\] {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+footer .btn-secondary {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  color: #ffffff !important;
+  background: transparent !important;
+}
+footer .btn-secondary:hover {
+  background: #ffffff !important;
+  color: var(--primary) !important;
+}
+
+/* ==========================================
+   MISC DECORATIONS & ALIGNMENTS
+   ========================================== */
 
 /* Glassmorphism Panel Adaptations for Muted Elements in Light Theme */
 .border-white\/\[0\.04\],

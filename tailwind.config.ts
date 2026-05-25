@@ -9,23 +9,23 @@ module.exports = {
     extend: {
       colors: {
         bg: {
-          primary: '#050508',
-          secondary: '#0a0a12',
-          surface: '#0d0d1a',
-          card: '#111120',
+          primary: 'var(--bg)',
+          secondary: '#ffffff',
+          surface: '#ffffff',
+          card: '#ffffff',
         },
         brand: {
-          purple: '#6366f1',
-          violet: '#8b5cf6',
-          glow: '#a78bfa',
-          cyan: '#06b6d4',
+          purple: 'var(--secondary)',
+          violet: 'var(--primary)',
+          glow: 'var(--accent)',
+          cyan: 'var(--secondary)',
           pink: '#ec4899',
-          emerald: '#10b981',
+          emerald: 'var(--secondary)',
         },
         border: {
-          subtle: 'rgba(255,255,255,0.06)',
-          DEFAULT: 'rgba(255,255,255,0.1)',
-          bright: 'rgba(99,102,241,0.4)',
+          subtle: 'rgba(11, 60, 109, 0.06)',
+          DEFAULT: 'rgba(11, 60, 109, 0.1)',
+          bright: 'rgba(20, 184, 166, 0.3)',
         },
       },
       fontFamily: {
@@ -35,8 +35,8 @@ module.exports = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'hero-glow': 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99,102,241,0.3), transparent)',
-        'card-glow': 'radial-gradient(ellipse at top, rgba(99,102,241,0.15), transparent 70%)',
+        'hero-glow': 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(20, 184, 166, 0.15), transparent)',
+        'card-glow': 'radial-gradient(ellipse at top, rgba(20, 184, 166, 0.08), transparent 70%)',
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
@@ -69,11 +69,11 @@ module.exports = {
         xs: '2px',
       },
       boxShadow: {
-        'glow-purple': '0 0 40px rgba(99,102,241,0.3)',
-        'glow-violet': '0 0 40px rgba(139,92,246,0.3)',
-        'glow-cyan': '0 0 40px rgba(6,182,212,0.3)',
-        'card': '0 4px 32px rgba(0,0,0,0.5)',
-        'card-hover': '0 8px 64px rgba(0,0,0,0.7), 0 0 40px rgba(99,102,241,0.2)',
+        'glow-purple': '0 0 40px rgba(20, 184, 166, 0.15)',
+        'glow-violet': '0 0 40px rgba(11, 60, 109, 0.15)',
+        'glow-cyan': '0 0 40px rgba(20, 184, 166, 0.15)',
+        'card': '0 4px 20px rgba(11, 60, 109, 0.05)',
+        'card-hover': '0 8px 30px rgba(11, 60, 109, 0.1), 0 0 20px rgba(20, 184, 166, 0.1)',
       },
     },
   },

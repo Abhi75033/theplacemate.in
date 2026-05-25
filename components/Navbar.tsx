@@ -33,7 +33,7 @@ export default function Navbar() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-[#050508]/90 backdrop-blur-xl border-b border-white/[0.06] shadow-xl'
+            ? 'bg-[#F8FAFC]/90 backdrop-blur-xl border-b border-[#0B3C6D]/10 shadow-sm'
             : 'bg-transparent'
         }`}
       >
@@ -47,7 +47,7 @@ export default function Navbar() {
                 title="ThePlaceMate"
                 width={34}
                 height={34}
-                className="w-[34px] h-[34px] object-contain group-hover:drop-shadow-[0_0_12px_rgba(99,102,241,0.5)] transition-all duration-300 shrink-0"
+                className="w-[34px] h-[34px] object-contain group-hover:drop-shadow-[0_0_12px_rgba(20,184,166,0.5)] transition-all duration-300 shrink-0"
                 priority
                 fetchPriority="high"
               />
@@ -62,7 +62,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-4 py-2 text-sm font-medium text-[#94a3b8] hover:text-white transition-colors duration-200 rounded-lg hover:bg-white/[0.04]"
+                  className="px-4 py-2 text-sm font-medium text-[#0F172A] hover:text-[#14B8A6] transition-colors duration-200 rounded-lg hover:bg-[#14B8A6]/5"
                 >
                   {link.label}
                 </Link>
@@ -73,7 +73,7 @@ export default function Navbar() {
             <div className="hidden md:flex items-center gap-3">
               <Link
                 href="/courses/"
-                className="text-sm font-medium text-[#94a3b8] hover:text-white transition-colors"
+                className="text-sm font-medium text-[#0F172A] hover:text-[#14B8A6] transition-colors"
               >
                 Explore Programs
               </Link>
@@ -89,7 +89,7 @@ export default function Navbar() {
             {/* Mobile hamburger */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-2 rounded-lg text-[#94a3b8] hover:text-white hover:bg-white/[0.04] transition-all"
+              className="md:hidden p-2 rounded-lg text-[#0F172A] hover:text-[#14B8A6] hover:bg-[#14B8A6]/5 transition-all"
               aria-label="Toggle menu"
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -114,7 +114,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="px-4 py-3 text-sm font-medium text-[#94a3b8] hover:text-white hover:bg-white/[0.04] rounded-lg transition-all"
+                  className="px-4 py-3 text-sm font-medium text-[#0F172A] hover:text-[#14B8A6] hover:bg-[#14B8A6]/5 rounded-lg transition-all"
                 >
                   {link.label}
                 </Link>

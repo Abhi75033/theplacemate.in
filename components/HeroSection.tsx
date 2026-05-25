@@ -73,17 +73,17 @@ export default function HeroSection() {
       id="hero"
     >
       {/* Radial glow backgrounds */}
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div style={{ y: y1 }} className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.18)_0%,transparent_70%)]" />
-        <motion.div style={{ y: y2 }} className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(139,92,246,0.1)_0%,transparent_70%)] blur-2xl" />
-        <motion.div style={{ y: y3 }} className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-[radial-gradient(circle,rgba(6,182,212,0.07)_0%,transparent_70%)] blur-2xl" />
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#14B8A6]/5 via-[#F8FAFC] to-[#F8FAFC]">
+        <motion.div style={{ y: y1 }} className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[radial-gradient(ellipse_at_center,rgba(20,184,166,0.12)_0%,transparent_70%)]" />
+        <motion.div style={{ y: y2 }} className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(11,60,109,0.06)_0%,transparent_70%)] blur-2xl" />
+        <motion.div style={{ y: y3 }} className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-[radial-gradient(circle,rgba(249,115,22,0.05)_0%,transparent_70%)] blur-2xl" />
       </div>
 
       {/* Animated floating particles */}
       {[...Array(10)].map((_, i) => (
         <div
           key={i}
-          className="absolute w-1 h-1 rounded-full bg-[#6366f1]/40 animate-float pointer-events-none"
+          className="absolute w-1 h-1 rounded-full bg-[#14B8A6]/40 animate-float pointer-events-none"
           style={{
             left: `${12 + (i * 8) % 80}%`,
             top: `${18 + (i * 9) % 65}%`,
@@ -97,12 +97,12 @@ export default function HeroSection() {
       {FLOATING_TAGS.map((tag, i) => (
         <motion.div
           key={i}
-          className="absolute hidden lg:flex items-center gap-1.5 glass text-xs font-mono px-3 py-1.5 rounded-full border border-white/[0.08] text-[#94a3b8] z-20 pointer-events-none"
+          className="absolute hidden lg:flex items-center gap-1.5 glass text-xs font-mono px-3 py-1.5 rounded-full border border-[#0B3C6D]/10 text-[#0F172A] z-20 pointer-events-none shadow-sm"
           style={{ left: tag.x, top: tag.y }}
           animate={{ y: [0, -8, 0] }}
           transition={{ duration: 4 + i, repeat: Infinity, delay: tag.delay, ease: 'easeInOut' }}
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-[#6366f1]" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#14B8A6]" />
           {tag.text}
         </motion.div>
       ))}
@@ -118,7 +118,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20, filter: 'blur(10px)' }}
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-2 glass text-xs font-medium px-4 py-2 rounded-full border border-[#6366f1]/30 text-[#a78bfa] mb-6"
+              className="inline-flex items-center gap-2 glass text-xs font-medium px-4 py-2 rounded-full border border-[#14B8A6]/30 text-[#14B8A6] mb-6 shadow-sm"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-pulse" />
               Cohort 2025 — Applications Open
@@ -132,7 +132,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] tracking-tight mb-5"
             >
-              <span className="block text-white">Learn. Build.</span>
+              <span className="block text-[#0F172A]">Learn. Build.</span>
               <span className="block gradient-text text-glow">Get Hired.</span>
             </motion.h1>
 
@@ -170,9 +170,9 @@ export default function HeroSection() {
               </MagneticButton>
               <a
                 href="#counseling"
-                className="flex items-center gap-2 text-sm sm:text-base text-[#94a3b8] hover:text-white transition-colors px-2 py-3"
+                className="flex items-center gap-2 text-sm sm:text-base text-[#475569] hover:text-[#0F172A] transition-colors px-2 py-3"
               >
-                <Play className="w-4 h-4 text-[#6366f1]" />
+                <Play className="w-4 h-4 text-[#14B8A6]" />
                 Book Free Counseling
               </a>
             </motion.div>
@@ -192,7 +192,7 @@ export default function HeroSection() {
                 return (
                   <div
                     key={i}
-                    className="glass rounded-xl p-3 text-center border border-white/[0.06] hover:border-[#6366f1]/30 transition-all duration-300"
+                    className="glass rounded-xl p-3 text-center border border-[#0B3C6D]/10 hover:border-[#14B8A6]/30 transition-all duration-300 shadow-sm"
                   >
                     <div className="text-lg mb-0.5">{stat.icon}</div>
                     <div className="text-xl sm:text-2xl font-bold gradient-text">
@@ -218,12 +218,12 @@ export default function HeroSection() {
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-              className="glass rounded-xl p-4 border border-white/[0.08]"
+              className="glass rounded-xl p-4 border border-[#0B3C6D]/8 shadow-sm"
             >
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#10b981] to-[#059669] flex items-center justify-center text-white text-sm font-bold">✓</div>
                 <div>
-                  <div className="text-sm font-semibold text-white">Aarav Shah</div>
+                  <div className="text-sm font-semibold text-[#0F172A]">Aarav Shah</div>
                   <div className="text-xs text-[#64748b]">Got placed at Razorpay</div>
                 </div>
                 <div className="ml-auto text-xs font-mono text-[#10b981] bg-[#10b981]/10 px-2 py-1 rounded-full">₹18 LPA</div>
@@ -239,15 +239,15 @@ export default function HeroSection() {
             <motion.div
               animate={{ y: [0, 6, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-              className="glass rounded-xl p-4 border border-[#6366f1]/20"
+              className="glass rounded-xl p-4 border border-[#14B8A6]/20 shadow-sm"
             >
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#6366f1] to-[#8b5cf6] flex items-center justify-center text-white text-xs font-bold shrink-0">PR</div>
+                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#14B8A6] to-[#0B3C6D] flex items-center justify-center text-white text-xs font-bold shrink-0">PR</div>
                 <div className="flex-1 min-w-0">
                   <div className="text-xs text-[#64748b] mb-0.5">Pull Request merged</div>
-                  <div className="text-sm font-medium text-white truncate">feat: AI chatbot with RAG pipeline</div>
+                  <div className="text-sm font-medium text-[#0F172A] truncate">feat: AI chatbot with RAG pipeline</div>
                 </div>
-                <span className="text-[10px] text-[#a78bfa] font-mono whitespace-nowrap">2h ago</span>
+                <span className="text-[10px] text-[#14B8A6] font-mono whitespace-nowrap">2h ago</span>
               </div>
             </motion.div>
           </motion.div>
@@ -255,7 +255,7 @@ export default function HeroSection() {
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050508] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F8FAFC] to-transparent pointer-events-none" />
     </section>
   )
 }

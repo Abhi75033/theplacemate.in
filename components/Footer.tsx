@@ -68,9 +68,9 @@ export default function Footer() {
   const remainingCities = ALL_CITIES.filter(c => !TOP_CITY_SLUGS.includes(c.slug)).sort((a, b) => a.name.localeCompare(b.name))
 
   return (
-    <footer className="relative overflow-hidden bg-[#050508] border-t border-white/[0.06]">
-      <div className="absolute inset-0 grid-overlay opacity-20" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse,rgba(99,102,241,0.05),transparent_70%)]" />
+    <footer className="relative overflow-hidden bg-[#0B3C6D] border-t border-white/10 text-white">
+      <div className="absolute inset-0 grid-overlay opacity-10" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[radial-gradient(ellipse,rgba(20,184,166,0.15),transparent_70%)]" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top CTA */}
@@ -80,7 +80,7 @@ export default function Footer() {
               <h3 className="text-2xl sm:text-3xl font-black text-white mb-2">
                 Ready to <span className="gradient-text">start building?</span>
               </h3>
-              <p className="text-[#94a3b8] text-sm">Join 2,800+ students already on their career journey.</p>
+              <p className="text-white/70 text-sm">Join 2,800+ students already on their career journey.</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-3 sm:justify-end">
               <Link href="/contact/" className="btn-primary flex items-center justify-center gap-2 text-sm relative z-10">
@@ -102,11 +102,11 @@ export default function Footer() {
               const courses = slugs.map(s => courseMap[s]).filter(Boolean)
               return (
                 <div key={category}>
-                  <div className="text-[11px] font-medium text-[#6366f1] uppercase tracking-wider mb-3">{category}</div>
+                  <div className="text-[11px] font-medium text-[#14B8A6] uppercase tracking-wider mb-3">{category}</div>
                   <ul className="space-y-1.5">
                     {courses.map(c => (
                       <li key={c.slug}>
-                        <Link href={`/courses/${c.slug}/`} className="text-xs text-[#64748b] hover:text-[#94a3b8] transition-colors flex items-center gap-1">
+                        <Link href={`/courses/${c.slug}/`} className="text-xs text-white/60 hover:text-[#14B8A6] transition-colors flex items-center gap-1">
                           <span>{c.icon}</span> {c.title}
                         </Link>
                       </li>
@@ -122,11 +122,11 @@ export default function Footer() {
         <div className="py-10 border-b border-white/[0.06]">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
-              <MapPin className="w-3.5 h-3.5 text-[#6366f1]" />
-              <h4 className="text-xs font-semibold text-white uppercase tracking-wider">Training Locations <span className="text-[#475569] normal-case font-normal">({ALL_CITIES.length} cities)</span></h4>
+              <MapPin className="w-3.5 h-3.5 text-[#14B8A6]" />
+              <h4 className="text-xs font-semibold text-white uppercase tracking-wider">Training Locations <span className="text-white/50 normal-case font-normal">({ALL_CITIES.length} cities)</span></h4>
             </div>
             <button onClick={() => setShowAllCities(!showAllCities)}
-              className="flex items-center gap-1 text-[11px] text-[#6366f1] hover:text-[#8b5cf6] transition-colors">
+              className="flex items-center gap-1 text-[11px] text-[#14B8A6] hover:text-[#F97316] transition-colors">
               {showAllCities ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
               {showAllCities ? 'Show Less' : `View All ${ALL_CITIES.length} Cities`}
             </button>
@@ -136,10 +136,10 @@ export default function Footer() {
           <div className="flex flex-wrap gap-x-1 gap-y-1.5 mb-2">
             {topCities.map((city, i) => (
               <span key={city.slug} className="inline-flex items-center">
-                <Link href={`/courses/full-stack-web-development/${city.slug}/`} className="text-xs text-[#64748b] hover:text-[#6366f1] transition-colors">
+                <Link href={`/courses/full-stack-web-development/${city.slug}/`} className="text-xs text-white/60 hover:text-[#14B8A6] transition-colors">
                   {city.name}
                 </Link>
-                {i < topCities.length - 1 && <span className="text-[#1e293b] mx-1.5">·</span>}
+                {i < topCities.length - 1 && <span className="text-white/20 mx-1.5">·</span>}
               </span>
             ))}
           </div>
@@ -152,10 +152,10 @@ export default function Footer() {
                   <div className="flex flex-wrap gap-x-1 gap-y-1.5">
                     {remainingCities.map((city, i) => (
                       <span key={city.slug} className="inline-flex items-center">
-                        <Link href={`/courses/full-stack-web-development/${city.slug}/`} className="text-[11px] text-[#475569] hover:text-[#6366f1] transition-colors">
+                        <Link href={`/courses/full-stack-web-development/${city.slug}/`} className="text-[11px] text-white/40 hover:text-[#14B8A6] transition-colors">
                           {city.name}
                         </Link>
-                        {i < remainingCities.length - 1 && <span className="text-[#1e293b] mx-1">·</span>}
+                        {i < remainingCities.length - 1 && <span className="text-white/20 mx-1">·</span>}
                       </span>
                     ))}
                   </div>
@@ -171,7 +171,7 @@ export default function Footer() {
           <div className="flex flex-wrap gap-2">
             {POPULAR_COMBOS.map(combo => (
               <Link key={combo.href} href={combo.href}
-                className="text-[11px] text-[#64748b] hover:text-white glass px-3 py-1.5 rounded-full border border-white/[0.06] hover:border-[#6366f1]/30 transition-all">
+                className="text-[11px] text-white/75 hover:text-white glass px-3 py-1.5 rounded-full border border-white/10 hover:border-[#14B8A6]/40 transition-all">
                 {combo.label}
               </Link>
             ))}
@@ -195,7 +195,7 @@ export default function Footer() {
                 The<span className="gradient-text">PlaceMate</span>
               </span>
             </Link>
-            <p className="text-xs text-[#64748b] leading-relaxed mb-4 max-w-[200px]">
+            <p className="text-xs text-white/70 leading-relaxed mb-4 max-w-[200px]">
               Industry-focused tech training and internship programs with real placement support across India.
             </p>
             <div className="flex gap-2">
@@ -206,7 +206,7 @@ export default function Footer() {
                 { Icon: Mail, label: 'Email', href: 'mailto:hello@theplacemate.in' },
               ].map(({ Icon, label, href }) => (
                 <a key={label} href={href} aria-label={label} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="w-8 h-8 glass rounded-lg flex items-center justify-center text-[#64748b] hover:text-white hover:border-[#6366f1]/40 border border-white/[0.06] transition-all">
+                  className="w-8 h-8 glass rounded-lg flex items-center justify-center text-white/60 hover:text-white hover:border-[#14B8A6]/40 border border-white/10 transition-all">
                   <Icon className="w-3.5 h-3.5" />
                 </a>
               ))}
@@ -227,7 +227,7 @@ export default function Footer() {
                 { label: 'Best Tech Courses', href: '/best-tech-courses-india/' },
                 { label: 'Contact', href: '/contact/' },
               ].map(l => (
-                <li key={l.label}><Link href={l.href} className="text-xs text-[#64748b] hover:text-[#94a3b8] transition-colors">{l.label}</Link></li>
+                <li key={l.label}><Link href={l.href} className="text-xs text-white/70 hover:text-[#14B8A6] transition-colors">{l.label}</Link></li>
               ))}
             </ul>
           </div>
@@ -243,7 +243,7 @@ export default function Footer() {
                 { label: 'Internship Guide', href: '/blog/how-to-get-it-internship-india-fresher/' },
                 { label: 'Top IT Courses', href: '/blog/top-10-it-courses-after-12th-india-2025/' },
               ].map(l => (
-                <li key={l.label}><Link href={l.href} className="text-xs text-[#64748b] hover:text-[#94a3b8] transition-colors">{l.label}</Link></li>
+                <li key={l.label}><Link href={l.href} className="text-xs text-white/70 hover:text-[#14B8A6] transition-colors">{l.label}</Link></li>
               ))}
             </ul>
           </div>
@@ -251,13 +251,13 @@ export default function Footer() {
           {/* Newsletter */}
           <div>
             <div className="text-xs font-semibold text-white uppercase tracking-wider mb-3">Stay Updated</div>
-            <p className="text-xs text-[#64748b] mb-3">Get cohort updates and career tips.</p>
+            <p className="text-xs text-white/70 mb-3">Get cohort updates and career tips.</p>
             {subscribed ? (
-              <div className="text-xs text-[#10b981] font-medium">🎉 You&apos;re subscribed!</div>
+              <div className="text-xs text-[#14B8A6] font-medium">🎉 You&apos;re subscribed!</div>
             ) : (
               <form onSubmit={handleSubscribe} className="space-y-2">
                 <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Enter your email" required
-                  className="w-full glass rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-[#475569] border border-white/[0.08] focus:border-[#6366f1]/40 focus:outline-none transition-all" />
+                  className="w-full glass rounded-xl px-4 py-2.5 text-sm text-white placeholder:text-white/40 border border-white/20 focus:border-[#14B8A6]/60 focus:outline-none transition-all" />
                 <button type="submit" className="btn-primary text-sm px-5 py-2.5 w-full relative z-10">
                   <span className="relative z-10">Subscribe</span>
                 </button>
@@ -267,11 +267,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="py-6 border-t border-white/[0.04] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#475569]">
+        <div className="py-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
           <span>© 2025 PlaceMate. All rights reserved. Registered Address: 12th Floor, Trade Tower, Bandra Kurla Complex, Mumbai, Maharashtra 400051.</span>
           <div className="flex gap-4">
-            <Link href="/privacy-policy/" className="hover:text-[#94a3b8] transition-colors">Privacy Policy</Link>
-            <Link href="/terms/" className="hover:text-[#94a3b8] transition-colors">Terms of Service</Link>
+            <Link href="/privacy-policy/" className="hover:text-[#14B8A6] transition-colors">Privacy Policy</Link>
+            <Link href="/terms/" className="hover:text-[#14B8A6] transition-colors">Terms of Service</Link>
           </div>
           <span>Made with ❤️ for aspiring engineers</span>
         </div>

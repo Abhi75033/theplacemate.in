@@ -140,7 +140,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body className="bg-[#050508] text-[#f8fafc] antialiased overflow-x-hidden font-sans">
+      <body className="bg-[#F8FAFC] text-[#0F172A] antialiased overflow-x-hidden font-sans">
         {children}
         <FloatingContactForm />
         <Script

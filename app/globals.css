@@ -277,6 +277,15 @@ body {
   background: rgba(99, 102, 241, 0.5);
 }
 
+/* Hide scrollbar utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 /* Particle dot */
 .particle {
   position: absolute;

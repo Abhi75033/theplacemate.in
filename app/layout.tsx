@@ -50,10 +50,10 @@ export const metadata: Metadata = {
     locale: 'en_IN',
     images: [
       {
-        url: '/og-home.png',
+        url: '/images/theplacemate-logo.png',
         width: 1200,
         height: 630,
-        alt: 'PlaceMate — Training & Internship Platform',
+        alt: 'ThePlaceMate — Training & Internship Platform',
       },
     ],
   },

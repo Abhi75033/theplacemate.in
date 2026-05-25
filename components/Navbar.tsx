@@ -42,15 +42,18 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 group" aria-label="ThePlaceMate - Home">
               <Image
-                src="/images/theplacemate-logo.png"
+                src="/images/theplacemate-logo-icon.png"
                 alt="ThePlaceMate Training and Internship Logo"
                 title="ThePlaceMate"
-                width={120}
-                height={40}
-                className="h-9 w-auto object-contain group-hover:drop-shadow-[0_0_12px_rgba(99,102,241,0.5)] transition-all duration-300"
+                width={34}
+                height={34}
+                className="w-[34px] h-[34px] object-contain group-hover:drop-shadow-[0_0_12px_rgba(99,102,241,0.5)] transition-all duration-300 shrink-0"
                 priority
                 fetchPriority="high"
               />
+              <span className="text-lg font-bold tracking-tight">
+                The<span className="gradient-text">PlaceMate</span>
+              </span>
             </Link>
 
             {/* Desktop nav */}

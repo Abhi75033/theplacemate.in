@@ -184,13 +184,16 @@ export default function Footer() {
           <div className="col-span-2 sm:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4" aria-label="ThePlaceMate - Home">
               <Image
-                src="/images/theplacemate-logo.png"
+                src="/images/theplacemate-logo-icon.png"
                 alt="ThePlaceMate Training and Internship Logo"
                 title="ThePlaceMate"
-                width={120}
-                height={40}
-                className="h-8 w-auto object-contain"
+                width={30}
+                height={30}
+                className="w-[30px] h-[30px] object-contain shrink-0"
               />
+              <span className="text-lg font-bold">
+                The<span className="gradient-text">PlaceMate</span>
+              </span>
             </Link>
             <p className="text-xs text-[#64748b] leading-relaxed mb-4 max-w-[200px]">
               Industry-focused tech training and internship programs with real placement support across India.

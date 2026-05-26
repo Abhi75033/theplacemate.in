@@ -23,6 +23,7 @@ interface Testimonial {
   company: string
   salary: string
   quote: string
+  image: string
   techs: string[]
   struggles: string[]
   successMetrics: string[]
@@ -41,6 +42,7 @@ const TESTIMONIALS: Testimonial[] = [
     color: '#14B8A6',
     company: 'Razorpay',
     salary: '₹18 LPA',
+    image: '/images/aarav_shah_avatar.png',
     quote: 'PlaceMate didn\'t just teach me code — they gave me the real-world experience I needed. The internship phase was the game-changer. I\'ve shipped 6 production apps and had 3 job offers.',
     techs: ['React', 'Next.js', 'Node.js', 'AWS'],
     struggles: [
@@ -66,6 +68,7 @@ const TESTIMONIALS: Testimonial[] = [
     color: '#F97316',
     company: 'Swiggy',
     salary: '₹14 LPA',
+    image: '/images/preethi_rao_avatar.png',
     quote: 'I came in knowing nothing about design tools. The mentorship was exceptional — my portfolio went from blank to 12 case studies. I got hired before the cohort even ended.',
     techs: ['Figma', 'Framer', 'Design Systems'],
     struggles: [
@@ -91,6 +94,7 @@ const TESTIMONIALS: Testimonial[] = [
     color: '#0B3C6D',
     company: 'GrowthSpace',
     salary: '₹22 LPA',
+    image: '/images/karan_mehta_avatar.png',
     quote: 'The GenAI track is incredible. I learned LangChain, RAG, and OpenAI APIs by actually building real products. The mentors are from the industry and give actual feedback.',
     techs: ['Python', 'LangChain', 'OpenAI'],
     struggles: [
@@ -116,6 +120,7 @@ const TESTIMONIALS: Testimonial[] = [
     color: '#14B8A6',
     company: 'CloudScale',
     salary: '₹16 LPA',
+    image: '/images/simran_kaur_avatar.png',
     quote: 'The DevOps track covered everything — Docker, Kubernetes, AWS, CI/CD pipelines. The hands-on approach and real deployment projects made all the difference in interviews.',
     techs: ['Docker', 'Kubernetes', 'AWS'],
     struggles: [
@@ -293,33 +298,63 @@ export default function TestimonialsSection() {
                     </blockquote>
                   </div>
 
-                  {/* Profile info & Salary details inside card */}
-                  <div className="flex items-center gap-4 pt-5 border-t border-slate-200/60 mt-auto">
-                    <div className="relative">
-                      {/* Avatar glow wrapper */}
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#14B8A6] to-purple-500 blur-sm opacity-50 animate-pulse pointer-events-none" />
-                      <div className="relative w-13 h-13 rounded-full bg-[#0F172A] border border-white/90 flex items-center justify-center text-sm font-black text-white shadow-md transition-all duration-500 group-hover:scale-105">
-                        <span className="bg-gradient-to-br from-white to-slate-200 bg-clip-text text-transparent">{t.avatar}</span>
-                      </div>
-                      <div className="absolute -bottom-0.5 -right-0.5 w-4.5 h-4.5 bg-[#14B8A6] border-2 border-white rounded-full flex items-center justify-center shadow">
-                        <CheckCircle2 className="w-2.5 h-2.5 text-white" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="font-black text-[#0B3C6D] text-sm sm:text-base flex items-center gap-1.5">
-                        {t.name}
-                      </div>
-                      <div className="text-[11px] text-[#475569] font-semibold">{t.role}</div>
-                    </div>
+                  {/* Profile Info, Avatar & Packages */}
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-6 pt-5 border-t border-slate-200/60 mt-auto">
                     
-                    {/* Company Logo and salary tag */}
-                    <div className="ml-auto text-right flex flex-col items-end gap-1.5">
+                    {/* Left Side: Avatar, Name, Role & Status Chips */}
+                    <div className="flex items-center gap-4">
+                      <div className="relative group/avatar shrink-0">
+                        {/* Soft glow ring */}
+                        <div className="absolute -inset-0.5 rounded-full bg-gradient-to-tr from-[#14B8A6] via-purple-500 to-[#F97316] opacity-75 blur-sm transition duration-500 group-hover/avatar:opacity-100 group-hover/avatar:scale-105 pointer-events-none" />
+                        
+                        {/* Avatar Frame with fallback */}
+                        <div className="relative w-14 h-14 rounded-full bg-slate-900 border-2 border-white overflow-hidden flex items-center justify-center text-sm font-black text-white shadow-lg transition-transform duration-500 group-hover/avatar:scale-105">
+                          <img 
+                            src={t.image} 
+                            alt={t.name}
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              // fallback to custom stylized initials avatar
+                              e.currentTarget.style.display = 'none';
+                            }}
+                          />
+                          <span className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#0B3C6D] to-[#14B8A6] text-sm font-bold tracking-wider pointer-events-none select-none">
+                            {t.avatar}
+                          </span>
+                        </div>
+
+                        {/* Verified Badge */}
+                        <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-[#14B8A6] border-2 border-white rounded-full flex items-center justify-center shadow-md animate-pulse">
+                          <CheckCircle2 className="w-3 h-3 text-white" />
+                        </div>
+                      </div>
+
+                      <div>
+                        <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                          <h4 className="font-extrabold text-[#0B3C6D] text-base leading-none tracking-tight">{t.name}</h4>
+                          <span className="inline-flex items-center text-[9px] font-black px-1.5 py-0.5 rounded bg-green-500/10 text-green-600 border border-green-500/20 shadow-sm">
+                            PLACED
+                          </span>
+                        </div>
+                        <div className="text-xs text-slate-500 font-semibold leading-none">
+                          {t.role} <span className="text-[#14B8A6] font-extrabold">@ {t.company}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Right Side: Company Logo Badge & Salary details */}
+                    <div className="sm:ml-auto flex items-center gap-3 self-start sm:self-center">
                       <div className="bg-slate-900/[0.03] border border-slate-200/80 px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-sm transition-all duration-300 group-hover:bg-[#14B8A6]/5 group-hover:border-[#14B8A6]/20">
                         <Briefcase className="w-3 h-3 text-[#14B8A6]" />
                         <span className="text-[10px] font-black text-[#0B3C6D] uppercase tracking-wider">{t.company}</span>
                       </div>
-                      <div className="text-[10px] font-bold text-[#475569]">{t.salary} package</div>
+                      
+                      <div className="bg-gradient-to-br from-[#14B8A6]/10 to-[#0B3C6D]/5 border border-[#14B8A6]/20 px-3.5 py-1.5 rounded-xl shadow-sm hover:scale-105 transition-transform duration-300">
+                        <div className="text-sm font-black text-[#0B3C6D] leading-none">{t.salary}</div>
+                        <div className="text-[7px] font-extrabold uppercase tracking-wider text-slate-500 mt-1">CTC Package</div>
+                      </div>
                     </div>
+
                   </div>
                 </div>
               </div>

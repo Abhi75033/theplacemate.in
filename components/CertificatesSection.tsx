@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Award, ShieldCheck, Eye, X, ChevronLeft, ChevronRight, ExternalLink, ZoomIn, ZoomOut, Check } from 'lucide-react'
+import { Award, ShieldCheck, Eye, X, ChevronLeft, ChevronRight, ExternalLink, ZoomIn, ZoomOut, Check, Share2 } from 'lucide-react'
 import Image from 'next/image'
 
 const CERTIFICATES = [
@@ -16,7 +16,10 @@ const CERTIFICATES = [
     image: '/certificates/industrial-training.png',
     skills: ['Full-Stack Development', 'Industrial Standards', 'Software Architecture', 'Agile Workflows'],
     verification: 'MSME, NSDC, Skill India, ISO 9001, Startup India Approved',
-    badge: '🏆 Industrial Training'
+    badge: '🏆 Industrial Training',
+    credentialId: 'PM-IT-2023-8849',
+    category: 'Industrial Training',
+    verificationUrl: 'https://www.theplacemate.in/'
   },
   {
     id: 'internship',
@@ -28,7 +31,10 @@ const CERTIFICATES = [
     image: '/certificates/internship.png',
     skills: ['Psychology & UX Research', 'User Behavior Analysis', 'Product Innovation', 'Consistency'],
     verification: 'MSME, NSDC, Skill India, ISO 9001, Startup India Approved',
-    badge: '🎓 Psychology Internship'
+    badge: '🎓 Psychology Internship',
+    credentialId: 'PM-INT-2023-9021',
+    category: 'Psychology & UX Research',
+    verificationUrl: 'https://www.theplacemate.in/'
   },
   {
     id: 'ibm-cloud',
@@ -39,14 +45,19 @@ const CERTIFICATES = [
     description: 'Issued by IBM to certify successful completion and passing grade in the IBM Cloud Fundamental curriculum, verifying expertise in core cloud models and services.',
     image: '/certificates/ibm-cloud-fundamental.jpg',
     skills: ['Cloud Computing', 'IBM Cloud Infrastructure', 'Virtualization Services', 'Cloud Architecture'],
-    verification: 'Verifiable via courses.etrain.skillsnetwork.site/certificates/6f6c53e5f0b94b0da937f44570b1e7d0',
-    badge: '☁️ IBM Cloud Certified'
+    verification: 'IBM Skills Network Registry Verified',
+    badge: '☁️ IBM Cloud Certified',
+    credentialId: 'IBM-CF-2024-6f6c',
+    category: 'Cloud Engineering',
+    verificationUrl: 'https://courses.etrain.skillsnetwork.site/certificates/6f6c53e5f0b94b0da937f44570b1e7d0'
   }
 ]
 
 export default function CertificatesSection() {
   const [activeCertIndex, setActiveCertIndex] = useState<number | null>(null)
   const [isZoomed, setIsZoomed] = useState(false)
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null)
+  const [tilt, setTilt] = useState({ x: 0, y: 0 })
   const modalRef = useRef<HTMLDivElement>(null)
 
   // Navigation handlers
@@ -54,12 +65,14 @@ export default function CertificatesSection() {
     if (activeCertIndex === null) return
     setActiveCertIndex((prev) => (prev !== null && prev > 0 ? prev - 1 : CERTIFICATES.length - 1))
     setIsZoomed(false)
+    setTilt({ x: 0, y: 0 })
   }, [activeCertIndex])
 
   const handleNext = useCallback(() => {
     if (activeCertIndex === null) return
     setActiveCertIndex((prev) => (prev !== null && prev < CERTIFICATES.length - 1 ? prev + 1 : 0))
     setIsZoomed(false)
+    setTilt({ x: 0, y: 0 })
   }, [activeCertIndex])
 
   // Keyboard navigation
@@ -86,12 +99,29 @@ export default function CertificatesSection() {
     }
   }, [activeCertIndex])
 
+  // Tilt calculations on mouse move
+  const handleCardMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isZoomed) return
+    const card = e.currentTarget
+    const box = card.getBoundingClientRect()
+    const x = e.clientX - box.left - box.width / 2
+    const y = e.clientY - box.top - box.height / 2
+    setTilt({
+      x: (x / (box.width / 2)) * 6,
+      y: (y / (box.height / 2)) * -6
+    })
+  }
+
+  const handleMouseLeave = () => {
+    setTilt({ x: 0, y: 0 })
+  }
+
   return (
     <section className="relative section-padding overflow-hidden grid-overlay" id="certificates">
       {/* Background Glows */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(139,92,246,0.12)_0%,transparent_70%)] blur-3xl" />
-        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(99,102,241,0.08)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(20,184,166,0.06)_0%,transparent_70%)] blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(11,60,109,0.06)_0%,transparent_70%)] blur-3xl" />
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,9 +133,9 @@ export default function CertificatesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 glass text-xs font-semibold px-4 py-2 rounded-full border border-[#6366f1]/30 text-[#a78bfa] mb-4"
+            className="inline-flex items-center gap-2 glass text-xs font-semibold px-4 py-2 rounded-full border border-[#14B8A6]/30 text-[#14B8A6] mb-4"
           >
-            <ShieldCheck className="w-4 h-4 text-[#10b981]" />
+            <ShieldCheck className="w-4 h-4 text-[#14B8A6]" />
             100% Verified Career Credentials
           </motion.div>
 
@@ -139,7 +169,7 @@ export default function CertificatesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="group flex flex-col glass rounded-2xl border border-white/[0.06] hover:border-[#6366f1]/30 overflow-hidden card-hover h-full"
+              className="group flex flex-col glass rounded-2xl border border-white/[0.06] hover:border-[#14B8A6]/30 overflow-hidden card-hover h-full"
             >
               {/* Image Container with high contrast overlay */}
               <div 
@@ -164,7 +194,7 @@ export default function CertificatesSection() {
 
                 {/* Badge Overlay */}
                 <div className="absolute top-4 left-4 z-20">
-                  <span className="glass px-3 py-1.5 rounded-full text-xs font-mono text-[#a78bfa] border border-white/[0.08] shadow-lg">
+                  <span className="glass px-3 py-1.5 rounded-full text-xs font-mono text-[#14B8A6] border border-white/[0.08] shadow-lg">
                     {cert.badge}
                   </span>
                 </div>
@@ -172,7 +202,7 @@ export default function CertificatesSection() {
                 {/* Eye Hover overlay */}
                 <div className="absolute inset-0 bg-[#050508]/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-300 z-20">
                   <div className="flex flex-col items-center gap-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    <span className="p-3 bg-[#6366f1] rounded-full text-white shadow-lg shadow-[#6366f1]/30">
+                    <span className="p-3 bg-[#14B8A6] rounded-full text-white shadow-lg shadow-[#14B8A6]/30">
                       <Eye className="w-5 h-5 animate-pulse" />
                     </span>
                     <span className="text-xs font-semibold text-white tracking-wider uppercase">View Full Resolution</span>
@@ -194,7 +224,7 @@ export default function CertificatesSection() {
                     </div>
                   </div>
 
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#a78bfa] transition-colors duration-200">
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#14B8A6] transition-colors duration-200">
                     {cert.title}
                   </h3>
 
@@ -207,7 +237,7 @@ export default function CertificatesSection() {
                     {cert.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="text-[10px] font-mono font-medium px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05] text-[#94a3b8] hover:text-white hover:border-[#6366f1]/20 transition-all"
+                        className="text-[10px] font-mono font-medium px-2 py-1 rounded bg-white/[0.03] border border-white/[0.05] text-[#94a3b8] hover:text-white hover:border-[#14B8A6]/20 transition-all"
                       >
                         {skill}
                       </span>
@@ -232,48 +262,70 @@ export default function CertificatesSection() {
         </div>
       </div>
 
-      {/* Lightbox / Modal Modal View */}
+      {/* Lightbox / Modal View */}
       <AnimatePresence>
         {activeCertIndex !== null && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-md"
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center p-4 md:p-6 bg-[#030712]/95 backdrop-blur-xl overflow-y-auto terminal"
             onClick={() => setActiveCertIndex(null)}
           >
-            {/* Close instruction (top of modal) */}
-            <div className="absolute top-4 right-4 flex items-center gap-2 z-50">
-              {/* Zoom Toggle button */}
+            {/* Cinematic background lighting */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-[#14B8A6]/15 via-[#0B3C6D]/25 to-[#F97316]/10 rounded-full blur-3xl opacity-60 mix-blend-screen" />
+              <div className="absolute inset-0 opacity-[0.015] bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
+            </div>
+
+            {/* Top Controls / Actions */}
+            <div className="absolute top-6 right-6 flex items-center gap-3 z-50">
+              {/* Copy Verification Link (Share) */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  const url = CERTIFICATES[activeCertIndex].verificationUrl || `https://www.theplacemate.in/`
+                  navigator.clipboard.writeText(url)
+                  setCopiedIndex(activeCertIndex)
+                  setTimeout(() => setCopiedIndex(null), 2000)
+                }}
+                className="p-2.5 bg-slate-900/80 hover:bg-slate-800 backdrop-blur-md rounded-full text-slate-300 hover:text-white transition-all border border-white/10 shadow-lg hover:shadow-[#14B8A6]/20 hover:border-[#14B8A6]/40 flex items-center justify-center hover:scale-105"
+                title="Copy Verification Link"
+              >
+                {copiedIndex === activeCertIndex ? <Check className="w-4 h-4 text-[#14B8A6]" /> : <Share2 className="w-4 h-4" />}
+              </button>
+
+              {/* Zoom Toggle */}
               <button
                 onClick={(e) => {
                   e.stopPropagation()
                   setIsZoomed(!isZoomed)
                 }}
-                className="p-3 bg-white/[0.05] hover:bg-white/[0.1] rounded-full text-[#cbd5e1] hover:text-white transition-all border border-white/[0.08]"
-                title={isZoomed ? 'Zoom Out' : 'Zoom In for details'}
+                className="p-2.5 bg-slate-900/80 hover:bg-slate-800 backdrop-blur-md rounded-full text-slate-300 hover:text-white transition-all border border-white/10 shadow-lg hover:shadow-[#14B8A6]/20 hover:border-[#14B8A6]/40 flex items-center justify-center hover:scale-105"
+                title={isZoomed ? 'Zoom Out' : 'Zoom In'}
               >
-                {isZoomed ? <ZoomOut className="w-5 h-5" /> : <ZoomIn className="w-5 h-5" />}
+                {isZoomed ? <ZoomOut className="w-4 h-4" /> : <ZoomIn className="w-4 h-4" />}
               </button>
-              
-              {/* External view button */}
+
+              {/* Open Raw Image */}
               <a
                 href={CERTIFICATES[activeCertIndex].image}
                 target="_blank"
                 rel="noreferrer"
                 onClick={(e) => e.stopPropagation()}
-                className="p-3 bg-white/[0.05] hover:bg-white/[0.1] rounded-full text-[#cbd5e1] hover:text-white transition-all border border-white/[0.08]"
-                title="Open raw image in new tab"
+                className="p-2.5 bg-slate-900/80 hover:bg-slate-800 backdrop-blur-md rounded-full text-slate-300 hover:text-white transition-all border border-white/10 shadow-lg hover:shadow-[#14B8A6]/20 hover:border-[#14B8A6]/40 flex items-center justify-center hover:scale-105"
+                title="View Raw Image"
               >
-                <ExternalLink className="w-5 h-5" />
+                <ExternalLink className="w-4 h-4" />
               </a>
 
-              {/* Close button */}
+              {/* Close Button */}
               <button
                 onClick={() => setActiveCertIndex(null)}
-                className="p-3 bg-white/[0.05] hover:bg-white/[0.1] rounded-full text-[#cbd5e1] hover:text-white transition-all border border-white/[0.08] shadow-lg shadow-black/50"
+                className="p-2.5 bg-red-950/80 hover:bg-red-900/90 backdrop-blur-md rounded-full text-red-200 hover:text-white transition-all border border-red-900/40 shadow-lg flex items-center justify-center hover:scale-105"
+                title="Close Viewer"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4" />
               </button>
             </div>
 
@@ -283,7 +335,7 @@ export default function CertificatesSection() {
                 e.stopPropagation()
                 handlePrev()
               }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-40 p-3.5 bg-white/[0.04] hover:bg-white/[0.08] rounded-full text-[#cbd5e1] hover:text-white border border-white/[0.08] transition-all hidden sm:flex items-center justify-center hover:scale-105"
+              className="absolute left-6 top-1/2 -translate-y-1/2 z-40 p-3.5 bg-slate-900/60 hover:bg-slate-800/80 rounded-full text-slate-300 hover:text-white border border-white/10 shadow-lg transition-all hidden md:flex items-center justify-center hover:scale-105"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
@@ -294,22 +346,32 @@ export default function CertificatesSection() {
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.95, y: 15 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="relative max-w-5xl w-full flex flex-col items-center justify-center"
+              className="relative max-w-4xl w-full flex flex-col items-center justify-center z-10"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Certificate Image Frame */}
+              {/* Certificate Image Frame / Floating Glass Card */}
               <div 
                 ref={modalRef}
-                className={`relative w-full aspect-[1.414/1] max-h-[75vh] flex items-center justify-center bg-[#07070d] rounded-xl overflow-hidden border border-white/[0.08] shadow-2xl transition-all duration-300 ${
+                onMouseMove={handleCardMouseMove}
+                onMouseLeave={handleMouseLeave}
+                className={`relative w-full aspect-[1.414/1] max-h-[50vh] md:max-h-[58vh] flex items-center justify-center bg-slate-950/40 rounded-2xl overflow-hidden border border-white/10 shadow-[0_25px_60px_rgba(0,0,0,0.4)] transition-all duration-300 ${
                   isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'
                 }`}
                 onClick={() => setIsZoomed(!isZoomed)}
+                style={{
+                  transform: isZoomed 
+                    ? 'perspective(1000px) scale(1.35)' 
+                    : `perspective(1000px) rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`,
+                  transformStyle: 'preserve-3d',
+                  transition: isZoomed ? 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)' : 'transform 0.1s ease-out',
+                  imageRendering: '-webkit-optimize-contrast',
+                }}
               >
                 <div 
-                  className="relative w-full h-full flex items-center justify-center transition-transform duration-300 ease-out"
+                  className="relative w-full h-full flex items-center justify-center"
                   style={{
-                    transform: isZoomed ? 'scale(1.5)' : 'scale(1)',
-                    imageRendering: '-webkit-optimize-contrast',
+                    transform: isZoomed ? 'scale(1.2)' : 'scale(1)',
+                    transition: 'transform 0.3s ease-out',
                   }}
                 >
                   <Image
@@ -317,38 +379,89 @@ export default function CertificatesSection() {
                     alt={CERTIFICATES[activeCertIndex].title}
                     fill
                     unoptimized // Disable Next.js image optimization API to preserve 100% of raw image quality & text readability
-                    className="object-contain"
+                    className="object-contain p-2 md:p-4 select-none"
                     priority
                   />
                 </div>
+                
+                {/* Holographic light sheen overlay */}
+                <div 
+                  className="absolute inset-0 pointer-events-none opacity-20 bg-gradient-to-tr from-transparent via-white/10 to-transparent mix-blend-overlay transition-opacity duration-300" 
+                  style={{
+                    transform: `translateX(${tilt.x * 10}px) translateY(${tilt.y * 10}px)`,
+                  }}
+                />
               </div>
 
               {/* Bottom detail card */}
-              <div className="w-full mt-4 glass p-5 rounded-xl border border-white/[0.08] bg-black/60 shadow-xl flex flex-col md:flex-row gap-4 items-start md:items-center justify-between text-left">
-                <div className="max-w-2xl">
-                  <div className="flex items-center gap-2.5 mb-1.5">
-                    <span className="text-xs font-semibold text-[#a78bfa] tracking-wider font-mono">
-                      {CERTIFICATES[activeCertIndex].badge}
+              <div className="w-full mt-6 bg-slate-950/85 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-2xl flex flex-col md:flex-row gap-6 items-stretch justify-between text-left">
+                <div className="flex-1 space-y-4">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="px-3 py-1 rounded-full text-[10px] font-semibold font-mono bg-gradient-to-r from-[#14B8A6] to-[#0B3C6D] text-white border border-[#14B8A6]/20 shadow-sm">
+                      {CERTIFICATES[activeCertIndex].category || 'Certification'}
                     </span>
-                    <span className="text-[10px] font-mono text-[#64748b]">|</span>
-                    <span className="text-[10px] font-mono text-[#10b981] flex items-center gap-1">
-                      <Check className="w-3 h-3 bg-[#10b981]/10 rounded-full border border-[#10b981]/30 p-0.5" />
-                      {CERTIFICATES[activeCertIndex].verification}
-                    </span>
+                    <span className="text-slate-700 select-none font-light">|</span>
+                    <div className="flex items-center gap-1.5 text-xs text-[#14B8A6] font-medium">
+                      <ShieldCheck className="w-4 h-4 text-[#14B8A6] animate-pulse" />
+                      <span className="text-[11px] font-mono tracking-wide">{CERTIFICATES[activeCertIndex].verification}</span>
+                    </div>
                   </div>
-                  <h4 className="text-xl font-bold text-white mb-1">
-                    {CERTIFICATES[activeCertIndex].title}
-                  </h4>
-                  <p className="text-xs text-[#94a3b8] leading-relaxed">
-                    Issued to <span className="text-white font-semibold">{CERTIFICATES[activeCertIndex].recipient}</span> &bull; {CERTIFICATES[activeCertIndex].description}
+                  
+                  <div>
+                    <h4 className="text-xl md:text-2xl font-black text-white leading-tight mb-1">
+                      {CERTIFICATES[activeCertIndex].title}
+                    </h4>
+                    <p className="text-xs text-slate-400">
+                      Issued to <span className="text-white font-bold text-sm bg-white/[0.04] px-2 py-0.5 rounded border border-white/5">{CERTIFICATES[activeCertIndex].recipient}</span> &bull; Issued on {CERTIFICATES[activeCertIndex].date.split(' - ')[0]}
+                    </p>
+                  </div>
+
+                  <p className="text-xs text-slate-300 leading-relaxed max-w-3xl">
+                    {CERTIFICATES[activeCertIndex].description}
                   </p>
+
+                  {/* Skills List */}
+                  <div className="flex flex-wrap gap-1.5 pt-2">
+                    {CERTIFICATES[activeCertIndex].skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="text-[9px] font-mono px-2 py-1 rounded bg-[#14B8A6]/5 border border-[#14B8A6]/15 text-[#14B8A6] hover:bg-[#14B8A6]/10 transition-colors"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
                 
-                {/* External Validation Action */}
-                <div className="shrink-0 flex items-center gap-2 self-stretch md:self-auto justify-end">
-                  <span className="text-xs font-mono text-[#cbd5e1] glass px-3 py-1.5 rounded-full border border-white/[0.08]">
-                    Issued: {CERTIFICATES[activeCertIndex].date}
-                  </span>
+                {/* Right Side Trust / ID Panel */}
+                <div className="md:w-64 shrink-0 flex flex-col justify-between items-start md:items-end border-t md:border-t-0 md:border-l border-white/5 pt-4 md:pt-0 md:pl-6 space-y-4">
+                  <div className="w-full text-left md:text-right space-y-1">
+                    <span className="block text-[9px] uppercase tracking-wider text-slate-500 font-mono">Credential ID</span>
+                    <span className="font-mono text-xs font-semibold text-white bg-slate-900 px-2.5 py-1 rounded border border-white/5 inline-block">
+                      {CERTIFICATES[activeCertIndex].credentialId || 'PM-CRED-VALID'}
+                    </span>
+                  </div>
+
+                  <div className="w-full text-left md:text-right space-y-1">
+                    <span className="block text-[9px] uppercase tracking-wider text-slate-500 font-mono">Verification Status</span>
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#10b981]/10 border border-[#10b981]/25 text-[#10b981] text-xs font-semibold">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#10b981] animate-ping" />
+                      Authentic Credential
+                    </div>
+                  </div>
+                  
+                  <div className="w-full pt-2">
+                    {CERTIFICATES[activeCertIndex].verificationUrl && (
+                      <a
+                        href={CERTIFICATES[activeCertIndex].verificationUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-full py-2 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 border border-white/10 hover:border-[#14B8A6]/30 text-white font-semibold text-[11px] flex items-center justify-center gap-1.5 transition-all"
+                      >
+                        Verify Online <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -359,14 +472,25 @@ export default function CertificatesSection() {
                 e.stopPropagation()
                 handleNext()
               }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-40 p-3.5 bg-white/[0.04] hover:bg-white/[0.08] rounded-full text-[#cbd5e1] hover:text-white border border-white/[0.08] transition-all hidden sm:flex items-center justify-center hover:scale-105"
+              className="absolute right-6 top-1/2 -translate-y-1/2 z-40 p-3.5 bg-slate-900/60 hover:bg-slate-800/80 rounded-full text-slate-300 hover:text-white border border-white/10 shadow-lg transition-all hidden md:flex items-center justify-center hover:scale-105"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
 
-            {/* Escape to close notification (bottom of modal) */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[10px] font-mono text-[#475569] pointer-events-none hidden sm:block">
-              Use arrow keys &larr; &rarr; to navigate &bull; Esc to close
+            {/* Onboarding helper bar (bottom of modal) */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-white/10 shadow-lg text-[10px] font-mono text-slate-300 flex items-center gap-4 z-40">
+              <span className="flex items-center gap-1">
+                <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-white font-sans text-[9px] border border-white/15">Esc</kbd> Close
+              </span>
+              <span className="text-slate-600">|</span>
+              <span className="flex items-center gap-1">
+                <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-white font-sans text-[9px] border border-white/15">←</kbd>
+                <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-white font-sans text-[9px] border border-white/15">→</kbd> Navigate
+              </span>
+              <span className="text-slate-600">|</span>
+              <span className="flex items-center gap-1">
+                <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-white font-sans text-[9px] border border-white/15">Click</kbd> Zoom
+              </span>
             </div>
           </motion.div>
         )}

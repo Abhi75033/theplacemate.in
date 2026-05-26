@@ -325,7 +325,7 @@ export default function TestimonialsSection() {
 
                         {/* Verified Badge */}
                         <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-[#14B8A6] border-2 border-white rounded-full flex items-center justify-center shadow-md animate-pulse">
-                          <CheckCircle2 className="w-3 h-3 text-white" />
+                          <CheckCircle2 className="w-3.5 h-3.5 text-white" />
                         </div>
                       </div>
 
@@ -342,16 +342,35 @@ export default function TestimonialsSection() {
                       </div>
                     </div>
 
-                    {/* Right Side: Company Logo Badge & Salary details */}
-                    <div className="sm:ml-auto flex items-center gap-3 self-start sm:self-center">
-                      <div className="bg-slate-900/[0.03] border border-slate-200/80 px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-sm transition-all duration-300 group-hover:bg-[#14B8A6]/5 group-hover:border-[#14B8A6]/20">
-                        <Briefcase className="w-3 h-3 text-[#14B8A6]" />
-                        <span className="text-[10px] font-black text-[#0B3C6D] uppercase tracking-wider">{t.company}</span>
-                      </div>
+                    {/* Right Side: Premium Compensation Widget */}
+                    <div className="sm:ml-auto shrink-0 relative w-full sm:w-auto">
+                      {/* Soft ambient glow behind card */}
+                      <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-emerald-400 via-teal-500 to-purple-600 opacity-20 blur-md pointer-events-none" />
                       
-                      <div className="bg-gradient-to-br from-[#14B8A6]/10 to-[#0B3C6D]/5 border border-[#14B8A6]/20 px-3.5 py-1.5 rounded-xl shadow-sm hover:scale-105 transition-transform duration-300">
-                        <div className="text-sm font-black text-[#0B3C6D] leading-none">{t.salary}</div>
-                        <div className="text-[7px] font-extrabold uppercase tracking-wider text-slate-500 mt-1">CTC Package</div>
+                      {/* Floating fintech CTC card */}
+                      <div className="relative w-full sm:w-40 rounded-2xl border border-white/20 bg-slate-950 p-3 sm:p-3.5 text-left shadow-[0_12px_25px_rgba(16,185,129,0.1)] transition-all duration-500 hover:scale-105 hover:border-emerald-500/40 hover:shadow-[0_20px_40px_rgba(16,185,129,0.18)] cta-shimmer">
+                        {/* Glow and reflections */}
+                        <div className="absolute -right-6 -top-6 w-16 h-16 bg-emerald-500/10 rounded-full blur-xl pointer-events-none" />
+                        
+                        <div className="flex items-center gap-1.5 mb-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                          <span className="text-[8px] font-black uppercase tracking-widest text-emerald-400">Verified Placement</span>
+                        </div>
+
+                        {/* Large Ultra-bold CTC typography */}
+                        <div className="text-xl sm:text-2xl font-black tracking-tight leading-none text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-emerald-300">
+                          {t.salary}
+                        </div>
+
+                        <div className="text-[7px] font-black text-slate-400 uppercase tracking-widest mt-1.5 flex items-center gap-1">
+                          <TrendingUp className="w-2.5 h-2.5 text-emerald-400" />
+                          <span>Starting Package</span>
+                        </div>
+
+                        <div className="mt-2 pt-1.5 border-t border-white/[0.08] flex items-center justify-between text-[7px] font-extrabold text-slate-300">
+                          <span>3 Offers</span>
+                          <span className="text-emerald-400 uppercase font-black">{t.company}</span>
+                        </div>
                       </div>
                     </div>
 

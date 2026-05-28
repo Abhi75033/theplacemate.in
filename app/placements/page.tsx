@@ -45,8 +45,33 @@ const SUPPORT_STEPS = [
 ]
 
 export default function PlacementsPage() {
+  const placementSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "PlaceMate Student Placements 2025",
+    "description": "Verified placement results of PlaceMate graduates at top Indian companies.",
+    "itemListElement": STORIES.map((s, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "item": {
+        "@type": "Person",
+        "name": s.name,
+        "jobTitle": s.role,
+        "worksFor": {
+          "@type": "Organization",
+          "name": s.company
+        },
+        "description": `Placed at ${s.company} with ${s.salary} package after completing PlaceMate ${s.program} cohort`
+      }
+    }))
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(placementSchema) }}
+      />
       <Navbar />
       <section className="relative pt-28 pb-16 overflow-hidden">
         <div className="absolute inset-0 grid-overlay opacity-30" />

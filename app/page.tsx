@@ -15,23 +15,122 @@ import GenAISection from '@/components/GenAISection'
 import CTASection from '@/components/CTASection'
 import FAQSection from '@/components/FAQSection'
 import Footer from '@/components/Footer'
-import { faqSchema } from '@/lib/schemas'
 
-const HOME_FAQS = [
-  { q: 'Do I need prior coding experience to join?', a: 'No! Most of our programs are designed for absolute beginners. We start from zero and progressively build your skills. As long as you have curiosity and commitment, you\'re ready to start.' },
-  { q: 'Is the internship certificate valid and recognized?', a: 'Yes. You receive a verified internship completion certificate from PlaceMate and optionally from our partner startups. These are real internship experiences with actual project work — not just participation certificates.' },
-  { q: 'Are sessions live or pre-recorded?', a: 'We offer a hybrid model — live mentor sessions 3x per week for Q&A, code reviews, and standups, plus recorded module content you can learn at your own pace. All live sessions are also recorded for replay.' },
-  { q: 'What kind of placement support do you provide?', a: 'We provide placement assistance — including resume reviews, LinkedIn optimization, mock interviews, portfolio feedback, and access to our hiring partner network for referrals.' },
-  { q: 'Are there EMI or payment plan options?', a: 'Yes! We offer flexible EMI options starting from ₹3,000/month with 0% interest for qualifying students. We also offer need-based scholarships.' },
-  { q: 'How long is each program?', a: 'Programs range from 8 to 16 weeks depending on the track. Full Stack Development and AI Engineering are 14–16 weeks, while Freelancing Accelerator and Graphic Design are 8–10 weeks.' },
-  { q: 'Will I receive a certification?', a: 'Yes, you receive a PlaceMate program completion certificate, internship certificate, and project completion badges for each production app you ship.' },
-  { q: 'What kind of projects will I actually build?', a: 'You\'ll build 5–8 production-grade projects including: AI SaaS dashboards, full-stack applications, chatbots, automation tools — all deployed live with real domains.' },
-]
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "PlaceMate",
+  "url": "https://www.theplacemate.in",
+  "logo": "https://www.theplacemate.in/images/theplacemate-logo-icon.png",
+  "description": "PlaceMate offers industry-focused cohort training programs in Full Stack Development, AI Engineering, UI/UX Design, DevOps, and more with real internships and placement support across India.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "12th Floor, Trade Tower, Bandra Kurla Complex",
+    "addressLocality": "Mumbai",
+    "addressRegion": "Maharashtra",
+    "postalCode": "400051",
+    "addressCountry": "IN"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "hello@theplacemate.in",
+    "contactType": "customer service",
+    "availableLanguage": ["English", "Hindi"]
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/theplacemate",
+    "https://www.instagram.com/theplacemate",
+    "https://twitter.com/theplacemate"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Tech Training Programs",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Course", "name": "Full Stack Web Development"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Course", "name": "Generative AI & AI Engineering"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Course", "name": "UI/UX Design"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Course", "name": "DevOps & Deployment"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Course", "name": "Backend Engineering"}}
+    ]
+  }
+};
+
+const faqPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need prior coding experience to join PlaceMate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No prior coding experience is required. PlaceMate programs are designed for beginners and take you from zero to industry-ready through structured cohort training."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the internship certificate from PlaceMate valid and recognized?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. PlaceMate internship certificates are issued after completing real startup projects and are recognized by 80+ hiring partners across India."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are PlaceMate sessions live or pre-recorded?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PlaceMate primarily offers live cohort-based sessions with daily standups, code reviews, and mentor 1:1s. Recordings are available for enrolled students."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What placement support does PlaceMate provide?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "PlaceMate provides ATS-optimized resume building, LinkedIn optimization, 5+ mock interviews, portfolio review, DSA prep, and direct referrals to 80+ hiring partners."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does PlaceMate offer EMI or payment plan options?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, EMI and flexible payment plan options are available for all PlaceMate programs. Apply free and discuss payment options during counseling."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long are PlaceMate training programs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Programs range from 8 to 16 weeks depending on the track. Full Stack is 16 weeks, AI Engineering is 14 weeks, and shorter tracks like Freelancing Accelerator are 8 weeks."
+      }
+    }
+  ]
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "PlaceMate",
+  "url": "https://www.theplacemate.in",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.theplacemate.in/courses/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+};
 
 export default function Home() {
   return (
     <main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(HOME_FAQS)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       <Navbar />
       <HeroSection />
       <TrustBanner />

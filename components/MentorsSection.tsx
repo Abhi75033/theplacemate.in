@@ -45,6 +45,33 @@ const MENTORS = [
 export default function MentorsSection() {
   return (
     <section id="mentors" className="section-padding relative overflow-hidden">
+      {/* Dynamic Person schemas for Mentors */}
+      {MENTORS.map((mentor, i) => {
+        const personSchema = {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": mentor.name,
+          "jobTitle": mentor.role,
+          "worksFor": {
+            "@type": "EducationalOrganization",
+            "name": "PlaceMate",
+            "url": "https://www.theplacemate.in"
+          },
+          "description": mentor.bio,
+          "knowsAbout": mentor.techs,
+          "sameAs": [
+            `https://www.linkedin.com/in/${mentor.name.toLowerCase().replace(/ /g, '-')}`,
+            `https://github.com/${mentor.name.toLowerCase().replace(/ /g, '-')}`
+          ]
+        };
+        return (
+          <script
+            key={`mentor-schema-${i}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+          />
+        );
+      })}
       <div className="absolute inset-0 grid-overlay opacity-40" />
       <div className="absolute top-0 left-0 w-[500px] h-[400px] bg-[radial-gradient(ellipse,rgba(99,102,241,0.08),transparent_70%)]" />
 

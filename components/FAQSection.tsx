@@ -48,12 +48,14 @@ function FAQItem({ faq, index }: { faq: { q: string; a: string }; index: number 
       viewport={{ once: true }}
       transition={{ delay: index * 0.06 }}
       className="glass rounded-2xl border border-white/[0.06] hover:border-[#6366f1]/20 transition-all overflow-hidden"
+      itemScope
+      itemType="https://schema.org/Question"
     >
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left"
       >
-        <span className="text-sm sm:text-base font-semibold text-white pr-2">{faq.q}</span>
+        <h3 itemProp="name" className="text-sm sm:text-base font-semibold text-white pr-2">{faq.q}</h3>
         <motion.div animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.3 }} className="shrink-0">
           <ChevronDown className={`w-5 h-5 transition-colors ${open ? 'text-[#6366f1]' : 'text-[#64748b]'}`} />
         </motion.div>
@@ -66,9 +68,9 @@ function FAQItem({ faq, index }: { faq: { q: string; a: string }; index: number 
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
           >
-            <div className="px-5 sm:px-6 pb-5 sm:pb-6">
+            <div className="px-5 sm:px-6 pb-5 sm:pb-6" itemScope itemType="https://schema.org/Answer" itemProp="acceptedAnswer">
               <div className="h-px bg-white/[0.06] mb-4" />
-              <p className="text-sm text-[#94a3b8] leading-relaxed">{faq.a}</p>
+              <p itemProp="text" className="text-sm text-[#94a3b8] leading-relaxed">{faq.a}</p>
             </div>
           </motion.div>
         )}

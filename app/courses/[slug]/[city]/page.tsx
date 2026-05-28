@@ -67,13 +67,25 @@ export default function LocationCoursePage({ params }: { params: { slug: string;
   return (
     <main className="pb-16 md:pb-0">
       <Navbar />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema(city.name)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema([
-        { name: 'Home', url: 'https://www.theplacemate.in/' },
-        { name: 'Courses', url: 'https://www.theplacemate.in/courses/' },
-        { name: course.title, url: `https://www.theplacemate.in/courses/${course.slug}/` },
-        { name: city.name, url: `https://www.theplacemate.in/courses/${course.slug}/${city.slug}/` },
-      ])) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": ["EducationalOrganization", "LocalBusiness"],
+        "name": `PlaceMate ${city.name} — ${course.title}`,
+        "url": `https://www.theplacemate.in/courses/${course.slug}/${city.slug}/`,
+        "description": `PlaceMate offers ${course.title} training in ${city.name} with real internships, placement support, and industry mentors.`,
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": city.name,
+          "addressCountry": "IN"
+        },
+        "areaServed": city.name,
+        "hasMap": `https://maps.google.com/?q=PlaceMate+${city.name}`,
+        "parentOrganization": {
+          "@type": "EducationalOrganization",
+          "name": "PlaceMate",
+          "url": "https://www.theplacemate.in"
+        }
+      }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(content.faqs)) }} />
 
       {/* Hero */}

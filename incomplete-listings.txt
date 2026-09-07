@@ -1,0 +1,5 @@
+# Incomplete PlaceMate Course Listings (Noindex, Nofollow)
+# This file lists any course listings that are missing critical fields (description or outcomes).
+# Dynamic systems automatically apply noindex meta tags and exclude these from the sitemap.
+
+No incomplete listings found. All 25 courses are fully complete.

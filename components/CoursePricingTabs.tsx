@@ -164,7 +164,7 @@ export default function CoursePricingTabs({ courseTitle }: CoursePricingTabsProp
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="inline-block px-3.5 py-1 rounded-full bg-[#0B3C6D]/10 text-[#0B3C6D] text-xs font-bold uppercase tracking-wider mb-3">
-            Program Durations & Razorpay Payment Integration
+            Program Durations & Pricing
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight mb-3">
             Choose Your <span className="gradient-text">Learning Track</span>
@@ -174,37 +174,75 @@ export default function CoursePricingTabs({ courseTitle }: CoursePricingTabsProp
           </p>
         </div>
 
-        {/* Tab Switcher */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex p-1.5 rounded-xl bg-slate-200/80 border border-slate-300">
+        {/* ULTRA-PRO SEGMENTED TAB CONTROL */}
+        <div className="flex justify-center mb-14">
+          <div className="inline-flex p-1.5 rounded-2xl bg-slate-200/70 border border-slate-300/80 shadow-inner">
+            {/* Working Professional Button */}
             <button
               type="button"
               onClick={() => setActiveTab('working-professional')}
-              className={`px-5 py-2.5 sm:px-7 sm:py-3 rounded-lg text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
+              style={{
+                backgroundColor: activeTab === 'working-professional' ? '#FFFFFF' : 'transparent',
+                color: activeTab === 'working-professional' ? '#0B3C6D' : '#475569',
+              }}
+              className={`px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-300 flex items-center gap-2.5 cursor-pointer ${
                 activeTab === 'working-professional'
-                  ? 'bg-[#0B3C6D] text-white shadow-md'
-                  : 'text-slate-700 hover:text-slate-900'
+                  ? 'shadow-lg shadow-slate-300/70 border border-slate-200'
+                  : 'hover:text-slate-900'
               }`}
             >
-              <Briefcase className="w-4 h-4" />
-              <span>Working Professional</span>
-              <span className="ml-1 px-2 py-0.5 rounded text-[10px] bg-white/20 text-white font-medium">
+              <Briefcase
+                style={{ color: activeTab === 'working-professional' ? '#14B8A6' : '#64748B' }}
+                className="w-4 h-4 shrink-0 stroke-[2.5]"
+              />
+              <span
+                style={{ color: activeTab === 'working-professional' ? '#0B3C6D' : '#475569' }}
+                className="font-extrabold"
+              >
+                Working Professional
+              </span>
+              <span
+                style={{
+                  backgroundColor: activeTab === 'working-professional' ? 'rgba(20, 184, 166, 0.12)' : 'rgba(203, 213, 225, 0.6)',
+                  color: activeTab === 'working-professional' ? '#0B3C6D' : '#475569',
+                }}
+                className="ml-1 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold border border-slate-200/60"
+              >
                 2 Plans
               </span>
             </button>
 
+            {/* Freshers & Graduates Button */}
             <button
               type="button"
               onClick={() => setActiveTab('freshers-graduates')}
-              className={`px-5 py-2.5 sm:px-7 sm:py-3 rounded-lg text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
+              style={{
+                backgroundColor: activeTab === 'freshers-graduates' ? '#FFFFFF' : 'transparent',
+                color: activeTab === 'freshers-graduates' ? '#0B3C6D' : '#475569',
+              }}
+              className={`px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-300 flex items-center gap-2.5 cursor-pointer ${
                 activeTab === 'freshers-graduates'
-                  ? 'bg-[#0B3C6D] text-white shadow-md'
-                  : 'text-slate-700 hover:text-slate-900'
+                  ? 'shadow-lg shadow-slate-300/70 border border-slate-200'
+                  : 'hover:text-slate-900'
               }`}
             >
-              <GraduationCap className="w-4 h-4" />
-              <span>Freshers & Graduates</span>
-              <span className="ml-1 px-2 py-0.5 rounded text-[10px] bg-white/20 text-white font-medium">
+              <GraduationCap
+                style={{ color: activeTab === 'freshers-graduates' ? '#F97316' : '#64748B' }}
+                className="w-4 h-4 shrink-0 stroke-[2.5]"
+              />
+              <span
+                style={{ color: activeTab === 'freshers-graduates' ? '#0B3C6D' : '#475569' }}
+                className="font-extrabold"
+              >
+                Freshers & Graduates
+              </span>
+              <span
+                style={{
+                  backgroundColor: activeTab === 'freshers-graduates' ? 'rgba(249, 115, 22, 0.12)' : 'rgba(194, 65, 12, 0.9)',
+                  color: activeTab === 'freshers-graduates' ? '#C2410C' : '#475569',
+                }}
+                className="ml-1 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold border border-slate-200/60"
+              >
                 4 Plans
               </span>
             </button>

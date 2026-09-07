@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Check, Briefcase, GraduationCap, ArrowRight, ShieldCheck, CreditCard } from 'lucide-react'
+import { Check, Briefcase, GraduationCap, ArrowRight, ShieldCheck } from 'lucide-react'
 import RazorpayModal from '@/components/RazorpayModal'
 
 interface CoursePricingTabsProps {
@@ -328,21 +328,27 @@ export default function CoursePricingTabs({ courseTitle }: CoursePricingTabsProp
                 </div>
 
                 {/* Razorpay Trigger Action Button */}
-                <button
-                  type="button"
-                  onClick={() => handleSelectPlan(plan)}
-                  style={{
-                    color: '#FFFFFF',
-                    backgroundColor: plan.popular ? '#14B8A6' : '#0B3C6D',
-                  }}
-                  className="w-full py-3.5 px-4 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 hover:opacity-95 shadow-sm cursor-pointer"
-                >
-                  <CreditCard className="w-4 h-4 text-white shrink-0" />
-                  <span style={{ color: '#FFFFFF' }} className="font-bold">
-                    Pay {plan.price} via Razorpay
-                  </span>
-                  <ArrowRight className="w-4 h-4 text-white shrink-0" />
-                </button>
+                <div className="pt-2">
+                  <button
+                    type="button"
+                    onClick={() => handleSelectPlan(plan)}
+                    style={{ color: '#FFFFFF' }}
+                    className={`w-full py-3.5 px-5 rounded-2xl text-xs sm:text-sm font-extrabold transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer group active:scale-[0.98] ${
+                      plan.popular
+                        ? 'bg-gradient-to-r from-[#14B8A6] via-[#0B3C6D] to-[#14B8A6] bg-[length:200%_auto] hover:bg-right shadow-lg shadow-[#14B8A6]/25 hover:shadow-xl hover:shadow-[#14B8A6]/40'
+                        : 'bg-[#0B3C6D] hover:bg-[#14B8A6] shadow-md hover:shadow-lg'
+                    }`}
+                  >
+                    <span style={{ color: '#FFFFFF' }} className="font-extrabold tracking-wide text-white">
+                      Enroll in {plan.duration} Track
+                    </span>
+                    <ArrowRight style={{ color: '#FFFFFF' }} className="w-4 h-4 text-white shrink-0 stroke-[2.5] group-hover:translate-x-1 transition-transform" />
+                  </button>
+                  <div className="flex items-center justify-center gap-1.5 text-[10px] font-semibold text-slate-500 mt-2.5">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#14B8A6] shrink-0" />
+                    <span>Instant Razorpay Checkout · UPI & Cards</span>
+                  </div>
+                </div>
               </div>
             ))}
           </motion.div>

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ShieldCheck, Lock, CheckCircle2, Loader2, ArrowRight, CreditCard, Sparkles, Zap } from 'lucide-react'
+import { X, ShieldCheck, Lock, CheckCircle2, Loader2, ArrowRight, CreditCard, Sparkles } from 'lucide-react'
 
 interface RazorpayModalProps {
   isOpen: boolean
@@ -18,6 +18,19 @@ declare global {
   interface Window {
     Razorpay: any
   }
+}
+
+// Official Razorpay Logo SVG Component
+function RazorpayLogo({ className = "h-5" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 110 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.46 0L0 24H7.59L15.79 8.18L12.46 0Z" fill="#0C2340" />
+      <path d="M15.79 8.18L10.61 18.12L14.73 24H22.32L15.79 8.18Z" fill="#0284C7" />
+      <text x="28" y="17" fontFamily="system-ui, -apple-system, sans-serif" fontWeight="900" fontSize="14" fill="#0C2340" letterSpacing="-0.4">
+        Razorpay
+      </text>
+    </svg>
+  )
 }
 
 export default function RazorpayModal({
@@ -217,7 +230,7 @@ export default function RazorpayModal({
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-all cursor-pointer"
+            className="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-all cursor-pointer z-20"
             aria-label="Close Modal"
           >
             <X className="w-5 h-5" />
@@ -249,9 +262,10 @@ export default function RazorpayModal({
                 </div>
               </div>
 
-              <p className="text-xs text-slate-500 mb-6">
-                Our admissions coordinator will contact you at <span className="font-bold text-slate-800">{formData.phone}</span> within 2 hours with your cohort login details.
-              </p>
+              <div className="flex items-center justify-center gap-2 mb-6 text-xs text-slate-500 font-medium">
+                <span>Secured by</span>
+                <RazorpayLogo className="h-4" />
+              </div>
 
               <button
                 onClick={onClose}
@@ -263,25 +277,27 @@ export default function RazorpayModal({
             </div>
           ) : (
             <div>
-              {/* Top Pill Tag */}
-              <div className="mb-5">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#14B8A6]/10 text-[#0B3C6D] text-[11px] font-extrabold uppercase tracking-wider border border-[#14B8A6]/20">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#14B8A6]" />
-                  <span>Razorpay Instant Checkout</span>
+              {/* Top Bar with Razorpay Official Branding Logo */}
+              <div className="flex items-center justify-between mb-4">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-[#0C2340] text-[11px] font-bold border border-slate-200/80">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#0284C7]" />
+                  <span>Secured by</span>
+                  <RazorpayLogo className="h-3.5 ml-0.5 inline-block" />
                 </span>
-                <h3 className="text-2xl font-black text-[#0F172A] tracking-tight mt-2">Complete Your Enrollment</h3>
-                <p className="text-xs text-slate-500 font-medium">Enter your details to proceed to official payment gateway</p>
               </div>
 
+              <h3 className="text-2xl font-black text-[#0F172A] tracking-tight">Complete Your Enrollment</h3>
+              <p className="text-xs text-slate-500 font-medium mb-5">Enter your details to proceed to Razorpay payment</p>
+
               {/* Receipt Summary Box */}
-              <div className="bg-gradient-to-br from-[#14B8A6]/8 via-slate-50 to-[#0B3C6D]/5 border border-[#14B8A6]/20 rounded-2xl p-4 mb-6">
+              <div className="bg-gradient-to-br from-[#0284C7]/8 via-slate-50 to-[#0C2340]/5 border border-[#0284C7]/20 rounded-2xl p-4 mb-6">
                 <div className="flex justify-between items-center">
                   <div>
                     <div className="text-xs font-black text-slate-900">{courseTitle}</div>
                     <div className="text-[11px] text-slate-500 font-medium">{planTitle} ({planDuration})</div>
                   </div>
                   <div className="text-right">
-                    <div className="text-xl font-black text-[#0B3C6D]">{formattedPrice}</div>
+                    <div className="text-xl font-black text-[#0C2340]">{formattedPrice}</div>
                     <div className="text-[10px] text-emerald-700 font-bold">0% No-Cost EMI Available</div>
                   </div>
                 </div>
@@ -297,7 +313,7 @@ export default function RazorpayModal({
                     value={formData.name}
                     onChange={(e) => setFormData((d) => ({ ...d, name: e.target.value }))}
                     placeholder="Enter your full name"
-                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm font-semibold placeholder:text-slate-400 focus:outline-none focus:border-[#14B8A6] focus:ring-4 focus:ring-[#14B8A6]/15 transition-all [&:-webkit-autofill]:bg-white [&:-webkit-autofill]:shadow-[0_0_0_1000px_white_inset]"
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm font-semibold placeholder:text-slate-400 focus:outline-none focus:border-[#0284C7] focus:ring-4 focus:ring-[#0284C7]/15 transition-all [&:-webkit-autofill]:bg-white [&:-webkit-autofill]:shadow-[0_0_0_1000px_white_inset]"
                   />
                 </div>
 
@@ -309,7 +325,7 @@ export default function RazorpayModal({
                     value={formData.email}
                     onChange={(e) => setFormData((d) => ({ ...d, email: e.target.value }))}
                     placeholder="you@example.com"
-                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm font-semibold placeholder:text-slate-400 focus:outline-none focus:border-[#14B8A6] focus:ring-4 focus:ring-[#14B8A6]/15 transition-all [&:-webkit-autofill]:bg-white [&:-webkit-autofill]:shadow-[0_0_0_1000px_white_inset]"
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm font-semibold placeholder:text-slate-400 focus:outline-none focus:border-[#0284C7] focus:ring-4 focus:ring-[#0284C7]/15 transition-all [&:-webkit-autofill]:bg-white [&:-webkit-autofill]:shadow-[0_0_0_1000px_white_inset]"
                   />
                 </div>
 
@@ -321,18 +337,18 @@ export default function RazorpayModal({
                     value={formData.phone}
                     onChange={(e) => setFormData((d) => ({ ...d, phone: e.target.value }))}
                     placeholder="+91 XXXXX XXXXX"
-                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm font-semibold placeholder:text-slate-400 focus:outline-none focus:border-[#14B8A6] focus:ring-4 focus:ring-[#14B8A6]/15 transition-all [&:-webkit-autofill]:bg-white [&:-webkit-autofill]:shadow-[0_0_0_1000px_white_inset]"
+                    className="w-full px-4 py-2.5 rounded-xl border border-slate-300 bg-white text-slate-900 text-sm font-semibold placeholder:text-slate-400 focus:outline-none focus:border-[#0284C7] focus:ring-4 focus:ring-[#0284C7]/15 transition-all [&:-webkit-autofill]:bg-white [&:-webkit-autofill]:shadow-[0_0_0_1000px_white_inset]"
                   />
                 </div>
 
                 {errorMsg && <p className="text-xs font-bold text-rose-600 bg-rose-50 p-2.5 rounded-xl border border-rose-200">{errorMsg}</p>}
 
-                {/* AWESOME GRADIENT ACTION BUTTON */}
+                {/* AWESOME GRADIENT ACTION BUTTON WITH RAZORPAY BRANDING */}
                 <button
                   type="submit"
                   disabled={status === 'loading'}
                   style={{ color: '#FFFFFF' }}
-                  className="w-full py-4 px-6 rounded-2xl text-base font-black transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer shadow-xl shadow-[#14B8A6]/25 hover:shadow-2xl hover:shadow-[#14B8A6]/40 hover:scale-[1.01] active:scale-[0.98] disabled:opacity-50 mt-3 bg-gradient-to-r from-[#14B8A6] via-[#0B3C6D] to-[#14B8A6] bg-[length:200%_auto] hover:bg-right"
+                  className="w-full py-4 px-6 rounded-2xl text-base font-black transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer shadow-xl shadow-[#0284C7]/25 hover:shadow-2xl hover:shadow-[#0284C7]/40 hover:scale-[1.01] active:scale-[0.98] disabled:opacity-50 mt-3 bg-gradient-to-r from-[#14B8A6] via-[#0C2340] to-[#0284C7] bg-[length:200%_auto] hover:bg-right"
                 >
                   {status === 'loading' ? (
                     <>
@@ -348,9 +364,10 @@ export default function RazorpayModal({
                   )}
                 </button>
 
-                <div className="flex items-center justify-center gap-2 text-[11px] text-slate-500 font-semibold pt-1">
+                <div className="flex items-center justify-center gap-2 text-[11px] text-slate-600 font-semibold pt-1">
                   <Lock className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>256-Bit SSL Encrypted · UPI, Cards, NetBanking, Paytm & EMI</span>
+                  <span>256-Bit SSL Encrypted by</span>
+                  <RazorpayLogo className="h-3.5 inline-block" />
                 </div>
               </form>
             </div>

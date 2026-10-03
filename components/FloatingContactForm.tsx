@@ -274,7 +274,7 @@ export default function FloatingContactForm() {
       {/* Floating Button */}
       <motion.button
         onClick={() => setIsOpen((prev) => !prev)}
-        className="fixed bottom-6 right-6 z-[997] w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all group"
+        className="fixed bottom-20 md:bottom-6 right-5 sm:right-6 z-[997] w-14 h-14 rounded-full flex items-center justify-center shadow-2xl transition-all group"
         style={{
           background: isOpen
             ? 'linear-gradient(135deg, #ef4444, #dc2626)'

@@ -8,6 +8,7 @@ import CourseFAQ from '@/components/CourseFAQ'
 import StickyCTA from '@/components/StickyCTA'
 import LeadForm from '@/components/LeadForm'
 import CertificatesSection from '@/components/CertificatesSection'
+import CohortCountdownTimer from '@/components/CohortCountdownTimer'
 import { COURSES, getCourseBySlug } from '@/lib/courses'
 import { ALL_CITIES, getCityBySlug } from '@/lib/cities'
 import { getCityContent } from '@/lib/city-content'
@@ -132,6 +133,9 @@ export default function LocationCoursePage({ params }: { params: { slug: string;
           </div>
         </div>
       </section>
+
+      {/* Cohort Countdown Timer */}
+      <CohortCountdownTimer />
 
       {/* Why Learn in this City */}
       <section className="py-16 bg-[#0a0a12] relative">

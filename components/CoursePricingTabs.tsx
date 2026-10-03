@@ -175,38 +175,32 @@ export default function CoursePricingTabs({ courseTitle }: CoursePricingTabsProp
         </div>
 
         {/* ULTRA-PRO SEGMENTED TAB CONTROL */}
-        <div className="flex justify-center mb-14">
-          <div className="inline-flex p-1.5 rounded-2xl bg-slate-200/70 border border-slate-300/80 shadow-inner">
+        <div className="flex justify-center mb-10 sm:mb-14 px-1 sm:px-4">
+          <div className="w-full max-w-lg sm:max-w-xl p-1.5 rounded-2xl bg-slate-200/80 border border-slate-300/80 shadow-inner grid grid-cols-2 gap-1.5 sm:gap-2">
             {/* Working Professional Button */}
             <button
               type="button"
               onClick={() => setActiveTab('working-professional')}
-              style={{
-                backgroundColor: activeTab === 'working-professional' ? '#FFFFFF' : 'transparent',
-                color: activeTab === 'working-professional' ? '#0B3C6D' : '#475569',
-              }}
-              className={`px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-300 flex items-center gap-2.5 cursor-pointer ${
+              className={`w-full py-2.5 sm:py-3.5 px-2 sm:px-5 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2.5 cursor-pointer ${
                 activeTab === 'working-professional'
-                  ? 'shadow-lg shadow-slate-300/70 border border-slate-200'
-                  : 'hover:text-slate-900'
+                  ? 'bg-white text-[#0B3C6D] shadow-md shadow-slate-300/60 border border-slate-200'
+                  : 'text-slate-600 hover:text-slate-900 bg-transparent'
               }`}
             >
               <Briefcase
-                style={{ color: activeTab === 'working-professional' ? '#14B8A6' : '#64748B' }}
-                className="w-4 h-4 shrink-0 stroke-[2.5]"
+                className={`w-4 h-4 shrink-0 stroke-[2.5] ${
+                  activeTab === 'working-professional' ? 'text-[#0D9488]' : 'text-slate-500'
+                }`}
               />
-              <span
-                style={{ color: activeTab === 'working-professional' ? '#0B3C6D' : '#475569' }}
-                className="font-extrabold"
-              >
-                Working Professional
+              <span className="font-extrabold whitespace-nowrap text-[11px] xs:text-xs sm:text-sm">
+                Working Pro
               </span>
               <span
-                style={{
-                  backgroundColor: activeTab === 'working-professional' ? 'rgba(20, 184, 166, 0.12)' : 'rgba(203, 213, 225, 0.6)',
-                  color: activeTab === 'working-professional' ? '#0B3C6D' : '#475569',
-                }}
-                className="ml-1 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold border border-slate-200/60"
+                className={`px-2 py-0.5 rounded-full text-[10px] font-extrabold shrink-0 border transition-colors ${
+                  activeTab === 'working-professional'
+                    ? 'bg-teal-50 text-teal-800 border-teal-200'
+                    : 'bg-slate-200/80 text-slate-600 border-slate-300/60'
+                }`}
               >
                 2 Plans
               </span>
@@ -216,32 +210,26 @@ export default function CoursePricingTabs({ courseTitle }: CoursePricingTabsProp
             <button
               type="button"
               onClick={() => setActiveTab('freshers-graduates')}
-              style={{
-                backgroundColor: activeTab === 'freshers-graduates' ? '#FFFFFF' : 'transparent',
-                color: activeTab === 'freshers-graduates' ? '#0B3C6D' : '#475569',
-              }}
-              className={`px-6 py-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-300 flex items-center gap-2.5 cursor-pointer ${
+              className={`w-full py-2.5 sm:py-3.5 px-2 sm:px-5 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2.5 cursor-pointer ${
                 activeTab === 'freshers-graduates'
-                  ? 'shadow-lg shadow-slate-300/70 border border-slate-200'
-                  : 'hover:text-slate-900'
+                  ? 'bg-white text-[#0B3C6D] shadow-md shadow-slate-300/60 border border-slate-200'
+                  : 'text-slate-600 hover:text-slate-900 bg-transparent'
               }`}
             >
               <GraduationCap
-                style={{ color: activeTab === 'freshers-graduates' ? '#F97316' : '#64748B' }}
-                className="w-4 h-4 shrink-0 stroke-[2.5]"
+                className={`w-4 h-4 shrink-0 stroke-[2.5] ${
+                  activeTab === 'freshers-graduates' ? 'text-[#EA580C]' : 'text-slate-500'
+                }`}
               />
-              <span
-                style={{ color: activeTab === 'freshers-graduates' ? '#0B3C6D' : '#475569' }}
-                className="font-extrabold"
-              >
-                Freshers & Graduates
+              <span className="font-extrabold whitespace-nowrap text-[11px] xs:text-xs sm:text-sm">
+                Freshers & Grads
               </span>
               <span
-                style={{
-                  backgroundColor: activeTab === 'freshers-graduates' ? 'rgba(249, 115, 22, 0.12)' : 'rgba(194, 65, 12, 0.9)',
-                  color: activeTab === 'freshers-graduates' ? '#C2410C' : '#475569',
-                }}
-                className="ml-1 px-2.5 py-0.5 rounded-full text-[10px] font-extrabold border border-slate-200/60"
+                className={`px-2 py-0.5 rounded-full text-[10px] font-extrabold shrink-0 border transition-colors ${
+                  activeTab === 'freshers-graduates'
+                    ? 'bg-amber-50 text-amber-800 border-amber-200'
+                    : 'bg-slate-200/80 text-slate-600 border-slate-300/60'
+                }`}
               >
                 4 Plans
               </span>
@@ -268,14 +256,14 @@ export default function CoursePricingTabs({ courseTitle }: CoursePricingTabsProp
                 key={plan.id}
                 className={`bg-white rounded-2xl p-6 border transition-all flex flex-col justify-between relative ${
                   plan.popular
-                    ? 'border-2 border-[#14B8A6] shadow-xl shadow-[#14B8A6]/10'
+                    ? 'border-2 border-[#14B8A6] shadow-xl shadow-[#14B8A6]/10 ring-1 ring-[#14B8A6]/20'
                     : 'border-slate-200 shadow-sm hover:shadow-md'
                 }`}
               >
                 {/* Internal Top Badge */}
                 {plan.popular ? (
                   <div className="mb-4">
-                    <span className="inline-block px-3 py-1 rounded bg-[#14B8A6] text-white text-[10px] font-extrabold uppercase tracking-wider">
+                    <span className="inline-block px-3 py-1 rounded bg-[#14B8A6] text-white text-[10px] font-extrabold uppercase tracking-wider shadow-sm">
                       {plan.popularBadge}
                     </span>
                   </div>
@@ -332,17 +320,16 @@ export default function CoursePricingTabs({ courseTitle }: CoursePricingTabsProp
                   <button
                     type="button"
                     onClick={() => handleSelectPlan(plan)}
-                    style={{ color: '#FFFFFF' }}
-                    className={`w-full py-3.5 px-5 rounded-2xl text-xs sm:text-sm font-extrabold transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer group active:scale-[0.98] ${
+                    className={`w-full py-3.5 px-5 rounded-2xl text-xs sm:text-sm font-black transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer group active:scale-[0.98] ${
                       plan.popular
-                        ? 'bg-gradient-to-r from-[#14B8A6] via-[#0B3C6D] to-[#14B8A6] bg-[length:200%_auto] hover:bg-right shadow-lg shadow-[#14B8A6]/25 hover:shadow-xl hover:shadow-[#14B8A6]/40'
-                        : 'bg-[#0B3C6D] hover:bg-[#14B8A6] shadow-md hover:shadow-lg'
+                        ? 'bg-gradient-to-r from-[#059669] via-[#0D9488] to-[#0284C7] hover:from-[#047857] hover:to-[#1D4ED8] text-white shadow-lg shadow-teal-500/25 hover:shadow-teal-500/40'
+                        : 'bg-gradient-to-r from-[#0F172A] to-[#0B3C6D] hover:from-[#0B3C6D] hover:to-[#0D9488] text-white shadow-md hover:shadow-lg'
                     }`}
                   >
-                    <span style={{ color: '#FFFFFF' }} className="font-extrabold tracking-wide text-white">
+                    <span className="font-extrabold tracking-wide !text-white text-white">
                       Enroll in {plan.duration} Track
                     </span>
-                    <ArrowRight style={{ color: '#FFFFFF' }} className="w-4 h-4 text-white shrink-0 stroke-[2.5] group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 !text-white text-white shrink-0 stroke-[2.5] group-hover:translate-x-1 transition-transform" />
                   </button>
                   <div className="flex items-center justify-center gap-1.5 text-[10px] font-semibold text-slate-500 mt-2.5">
                     <ShieldCheck className="w-3.5 h-3.5 text-[#14B8A6] shrink-0" />

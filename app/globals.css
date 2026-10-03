@@ -158,23 +158,26 @@ body {
   border-color: var(--secondary) !important;
 }
 
-/* Button styles - Orange/Teal Gradients & Professional Blue Borders */
+/* Button styles - Professional Teal/Cyan & Emerald Premium Gradients */
 .btn-primary {
-  background: linear-gradient(135deg, #14B8A6, #F97316);
-  color: white !important;
-  font-weight: 600;
+  background: linear-gradient(135deg, #0D9488 0%, #0B3C6D 100%);
+  color: #ffffff !important;
+  font-weight: 700;
   padding: 12px 28px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.2);
+  box-shadow: 0 4px 18px rgba(13, 148, 136, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .btn-primary::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #F97316, #14B8A6);
+  background: linear-gradient(135deg, #059669 0%, #0284C7 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -182,24 +185,33 @@ body {
   opacity: 1;
 }
 .btn-primary:hover {
-  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.35);
-  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 24px rgba(13, 148, 136, 0.45);
+  transform: translateY(-2px);
+}
+.btn-primary * {
+  color: #ffffff !important;
 }
 
 .btn-secondary {
   background: transparent;
-  color: var(--primary) !important;
-  font-weight: 600;
+  color: #0B3C6D !important;
+  font-weight: 700;
   padding: 12px 28px;
-  border-radius: 8px;
-  border: 2px solid var(--primary);
+  border-radius: 12px;
+  border: 2px solid #0B3C6D;
   transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .btn-secondary:hover {
-  background: var(--primary);
-  color: white !important;
+  background: #0B3C6D;
+  color: #ffffff !important;
   box-shadow: 0 4px 15px rgba(11, 60, 109, 0.25);
   transform: translateY(-2px);
+}
+.btn-secondary:hover * {
+  color: #ffffff !important;
 }
 
 /* Section spacing */
@@ -408,16 +420,16 @@ body {
    ROBUST DESCENDANT TEXT OVERRIDES
    ========================================== */
 
-/* Redirection of white text on light backgrounds */
-.text-white:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *, .dark-modal, .dark-modal *, .dark-theme, .dark-theme *) {
+/* Redirection of white text on light backgrounds - Exclude buttons and interactive components */
+.text-white:not(footer *, .btn-primary, .btn-primary *, .btn-secondary, .btn-secondary *, button, button *, [role="button"], [role="button"] *, .tag *, .badge *, .terminal *, .dark-modal, .dark-modal *, .dark-theme, .dark-theme *) {
   color: var(--text) !important;
 }
 
-.text-slate-100:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *, .dark-modal, .dark-modal *, .dark-theme, .dark-theme *),
-.text-slate-200:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *, .dark-modal, .dark-modal *, .dark-theme, .dark-theme *),
-.text-gray-100:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *, .dark-modal, .dark-modal *, .dark-theme, .dark-theme *),
-.text-gray-200:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *, .dark-modal, .dark-modal *, .dark-theme, .dark-theme *),
-.text-white\/80:not(footer *, .btn-primary *, .btn-secondary *, .tag *, .badge *, .terminal *, .dark-modal, .dark-modal *, .dark-theme, .dark-theme *) {
+.text-slate-100:not(footer *, .btn-primary, .btn-primary *, .btn-secondary, .btn-secondary *, button, button *, [role="button"], [role="button"] *, .tag *, .badge *, .terminal *, .dark-modal, .dark-modal *, .dark-theme, .dark-theme *),
+.text-slate-200:not(footer *, .btn-primary, .btn-primary *, .btn-secondary, .btn-secondary *, button, button *, [role="button"], [role="button"] *, .tag *, .badge *, .terminal *, .dark-modal, .dark-modal *, .dark-theme, .dark-theme *),
+.text-gray-100:not(footer *, .btn-primary, .btn-primary *, .btn-secondary, .btn-secondary *, button, button *, [role="button"], [role="button"] *, .tag *, .badge *, .terminal *, .dark-modal, .dark-modal *, .dark-theme, .dark-theme *),
+.text-gray-200:not(footer *, .btn-primary, .btn-primary *, .btn-secondary, .btn-secondary *, button, button *, [role="button"], [role="button"] *, .tag *, .badge *, .terminal *, .dark-modal, .dark-modal *, .dark-theme, .dark-theme *),
+.text-white\/80:not(footer *, .btn-primary, .btn-primary *, .btn-secondary, .btn-secondary *, button, button *, [role="button"], [role="button"] *, .tag *, .badge *, .terminal *, .dark-modal, .dark-modal *, .dark-theme, .dark-theme *) {
   color: #1e293b !important;
 }
 

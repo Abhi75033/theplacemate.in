@@ -25,12 +25,12 @@ export default function CoursesPageClient() {
   return (
     <div className="space-y-10">
       {/* Tab Controls */}
-      <div className="flex flex-col items-center gap-6">
-        <div className="inline-flex p-1.5 rounded-2xl bg-[#0F172A]/80 border border-white/10 backdrop-blur-xl shadow-2xl">
+      <div className="flex flex-col items-center gap-6 px-1 sm:px-4">
+        <div className="w-full max-w-xl p-1.5 rounded-2xl bg-[#0F172A]/90 border border-white/10 backdrop-blur-xl shadow-2xl grid grid-cols-2 gap-1.5 sm:gap-2">
           <button
             type="button"
             onClick={() => setActiveTab('working-professionals')}
-            className={`relative px-5 py-3 sm:px-8 sm:py-3.5 rounded-xl text-sm font-bold transition-all duration-300 flex items-center gap-3 ${
+            className={`relative w-full px-3 py-2.5 sm:px-6 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 cursor-pointer ${
               activeTab === 'working-professionals'
                 ? 'text-white shadow-lg'
                 : 'text-slate-400 hover:text-white'
@@ -39,21 +39,21 @@ export default function CoursesPageClient() {
             {activeTab === 'working-professionals' && (
               <motion.div
                 layoutId="activeTabPill"
-                className="absolute inset-0 bg-gradient-to-r from-[#14B8A6] to-[#0B3C6D] rounded-xl"
+                className="absolute inset-0 bg-gradient-to-r from-[#0D9488] to-[#0B3C6D] rounded-xl"
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
               />
             )}
-            <span className="relative z-10 text-xl sm:text-2xl">💼</span>
+            <span className="relative z-10 text-lg sm:text-2xl">💼</span>
             <div className="relative z-10 text-left">
               <div className="font-bold leading-snug text-xs sm:text-sm">Working Professionals</div>
-              <div className="text-[10px] sm:text-xs opacity-85 font-normal">Upskilling & Career Switch</div>
+              <div className="hidden sm:block text-[10px] sm:text-xs opacity-85 font-normal">Upskilling & Career Switch</div>
             </div>
           </button>
 
           <button
             type="button"
             onClick={() => setActiveTab('freshers-graduates')}
-            className={`relative px-5 py-3 sm:px-8 sm:py-3.5 rounded-xl text-sm font-bold transition-all duration-300 flex items-center gap-3 ${
+            className={`relative w-full px-3 py-2.5 sm:px-6 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 cursor-pointer ${
               activeTab === 'freshers-graduates'
                 ? 'text-white shadow-lg'
                 : 'text-slate-400 hover:text-white'
@@ -62,14 +62,14 @@ export default function CoursesPageClient() {
             {activeTab === 'freshers-graduates' && (
               <motion.div
                 layoutId="activeTabPill"
-                className="absolute inset-0 bg-gradient-to-r from-[#14B8A6] to-[#0B3C6D] rounded-xl"
+                className="absolute inset-0 bg-gradient-to-r from-[#0D9488] to-[#0B3C6D] rounded-xl"
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
               />
             )}
-            <span className="relative z-10 text-xl sm:text-2xl">🎓</span>
+            <span className="relative z-10 text-lg sm:text-2xl">🎓</span>
             <div className="relative z-10 text-left">
               <div className="font-bold leading-snug text-xs sm:text-sm">Freshers & Graduates</div>
-              <div className="text-[10px] sm:text-xs opacity-85 font-normal">For Students, 12th Pass & Grads</div>
+              <div className="hidden sm:block text-[10px] sm:text-xs opacity-85 font-normal">For Students & Grads</div>
             </div>
           </button>
         </div>

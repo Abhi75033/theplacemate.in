@@ -12,6 +12,7 @@ import CertificatesSection from '@/components/CertificatesSection'
 import AnimatedCourseTools from '@/components/AnimatedCourseTools'
 import CourseHeroAnimation from '@/components/CourseHeroAnimation'
 import CoursePricingTabs from '@/components/CoursePricingTabs'
+import CohortCountdownTimer from '@/components/CohortCountdownTimer'
 import { COURSES, getCourseBySlug, getRelatedCourses } from '@/lib/courses'
 import { getCurriculum, getFAQs, getTestimonials } from '@/lib/course-details'
 import { TIER1_INDIA } from '@/lib/cities'
@@ -159,6 +160,9 @@ export default function CourseDetailPage({ params }: { params: { slug: string } 
 
       {/* Tools */}
       <AnimatedCourseTools techs={course.techs} color={course.color} />
+
+      {/* Cohort Countdown Timer */}
+      <CohortCountdownTimer />
 
       {/* Pricing & Program Duration Tabs */}
       <CoursePricingTabs courseTitle={course.title} courseColor={course.color} />
